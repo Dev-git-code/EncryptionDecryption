@@ -1,6 +1,7 @@
 ﻿using EncyptionDecryption.Algorithms;
 using System.Security.Cryptography;
 using System.Text;
+using EncyptionDecryption.Helpers;
 
 namespace EncyptionDecryption
 { 
@@ -18,8 +19,8 @@ namespace EncyptionDecryption
                 Console.WriteLine("5. Exit");
                 int choice = int.Parse(Console.ReadLine());
 
-                IEncryptDecrypt? encryptDecrypt = null;
-                byte[][]? parameters = null;
+                dynamic? encryptDecrypt = null;
+                dynamic? parameters = null;
 
                 if (choice == 5)
                 {
@@ -31,11 +32,11 @@ namespace EncyptionDecryption
                 {
                     case 1:
                         encryptDecrypt = new AesEncryption();
-                        parameters = GenerateRandomKeyAndIV();
+                        parameters = HelperMethods.GenerateRandomKeyAndIV(32,16);
                         break;
                     case 2:
                         encryptDecrypt = new DesEncryption();
-                        //parameters = GenerateRandomKey(); 
+                        parameters = HelperMethods.GenerateRandomKeyAndIV(8,8); 
                         break;
                     case 3:
                         encryptDecrypt = new RsaEncryption();
@@ -66,25 +67,6 @@ namespace EncyptionDecryption
             }
         }
 
-       public static byte[][] GenerateRandomKeyAndIV()
-        {
-            byte[] Key = new byte[32];
-            byte[] iv = new byte[16];
-
-            using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(Key);
-                rng.GetBytes(iv);
-            }
-
-            byte[][] parameters = new byte[][]
-            {
-                Key,iv
-            };
-
-            return parameters;
-
-        }
        
     }
 }

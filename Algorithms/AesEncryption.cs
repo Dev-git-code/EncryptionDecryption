@@ -4,32 +4,33 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using EncyptionDecryption.Helpers;
 
 namespace EncyptionDecryption.Algorithms
 {
-    public class AesEncryption : IEncryptDecrypt
+    public class AesEncryption : IEncryptDecrypt<byte[][]>
     {
 
         public string Encrypt(string plaintext, params byte[][] parameters)
         {
-            ValidateParameters(parameters, 32, 16);
-            byte[] key = GetParameter(parameters, 0);
-            byte[] iv = GetParameter(parameters, 1);
+            HelperMethods.ValidateParameters(parameters, 32, 16);
+            byte[] key = HelperMethods.GetParameter(parameters, 0);
+            byte[] iv = HelperMethods.GetParameter(parameters, 1);
             return AesEncrypt(plaintext, key, iv);
         }
 
         public string Decrypt(string ciphertext, params byte[][] parameters)
         {
-            ValidateParameters(parameters, 32, 16);
-            byte[] key = GetParameter(parameters, 0);
-            byte[] iv = GetParameter(parameters, 1);
+            HelperMethods.ValidateParameters(parameters, 32, 16);
+            byte[] key = HelperMethods.GetParameter(parameters, 0);
+            byte[] iv = HelperMethods.GetParameter(parameters, 1);
             return AesDecrypt(ciphertext, key, iv);
         }
 
         public bool Verify(string plaintext, string hash, params byte[][] parameters)
         {
-            byte[] key = GetParameter(parameters, 0);
-            byte[] iv = GetParameter(parameters, 1);
+            byte[] key = HelperMethods.GetParameter(parameters, 0);
+            byte[] iv = HelperMethods.GetParameter(parameters, 1);
             string decrypted = AesDecrypt(hash, key, iv);
             return decrypted == plaintext;
         }
@@ -78,39 +79,6 @@ namespace EncyptionDecryption.Algorithms
             return simpletext;
         }
 
-        private static byte[] GetParameter(byte[][] parameters, int index)
-        {
-            if (parameters.Length <= index || parameters[index] == null)
-            {
-                throw new ArgumentException($"Parameter at index {index} is missing.");
-            }
-            return parameters[index];
-        }
-
-        private static void ValidateParameters(byte[][] parameters, int expectedKeySize, int expectedIvSize)
-        {
-            if (parameters == null || parameters.Length < 2)
-            {
-                throw new ArgumentException("Parameters array must contain at least two elements: key and IV.");
-            }
-
-            byte[] key = parameters[0];
-            byte[] iv = parameters[1];
-
-            if (key == null || iv == null)
-            {
-                throw new ArgumentException("Key and IV cannot be null.");
-            }
-
-            if (key.Length != expectedKeySize)
-            {
-                throw new ArgumentException($"Key size must be {expectedKeySize} bytes.");
-            }
-
-            if (iv.Length != expectedIvSize)
-            {
-                throw new ArgumentException($"IV size must be {expectedIvSize} bytes.");
-            }
-        }
+        
     }
 }
