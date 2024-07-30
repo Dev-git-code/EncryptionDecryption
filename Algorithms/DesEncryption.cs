@@ -8,17 +8,17 @@ namespace EncyptionDecryption.Algorithms
 {
     public class DesEncryption : IEncryptDecrypt
     {
-        public string Decrypt(string ciphertext, params byte[] parameters)
+        public string Decrypt(string ciphertext, params byte[][] parameters)
         {
             throw new NotImplementedException();
         }
 
-        public string Encrypt(string plaintext, params byte[] parameters)
+        public string Encrypt(string plaintext, params byte[][] parameters)
         {
             throw new NotImplementedException();
         }
 
-        public string Verify(string plaintext, string hash, params byte[] parameters)
+        public bool Verify(string plaintext, string hash, params byte[][] parameters)
         {
             throw new NotImplementedException();
         }
