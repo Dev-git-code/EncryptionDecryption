@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace EncyptionDecryption
 {
     public interface IEncryptDecrypt<T>
-    {   // params byte[][]
+    { 
         string Encrypt(string plaintext, T parameters);
         string Decrypt(string ciphertext, T parameters);
         bool Verify(string plaintext, string hash, T parameters);

@@ -1,0 +1,90 @@
+EncryptionDecryptionLogger Information: 0 : User chose to exit.
+EncryptionDecryptionLogger Error: 0 : Error occurred: Value cannot be null. (Parameter 's')
+EncryptionDecryptionLogger Information: 0 : User chose to exit.
+EncryptionDecryptionLogger Information: 0 : RSA algorithm selected.
+EncryptionDecryptionLogger Information: 0 : Encrypting text: password
+EncryptionDecryptionLogger Error: 0 : Error occurred: The best overloaded method match for 'EncyptionDecryption.Algorithms.RsaEncryption.Encrypt(string, params byte[][])' has some invalid arguments
+EncryptionDecryptionLogger Information: 0 : User chose to exit.
+EncryptionDecryptionLogger Information: 0 : RSA algorithm selected.
+EncryptionDecryptionLogger Information: 0 : Encrypting text: password
+EncryptionDecryptionLogger Error: 0 : Error occurred: The best overloaded method match for 'EncyptionDecryption.Algorithms.RsaEncryption.Encrypt(string, System.Security.Cryptography.RSAParameters)' has some invalid arguments
+EncryptionDecryptionLogger Information: 0 : User chose to exit.
+EncryptionDecryptionLogger Information: 0 : AES algorithm selected.
+EncryptionDecryptionLogger Information: 0 : Encrypting text: password
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Starting encryption process.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Validating parameters for encryption.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Parameters validated successfully.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Encryption key: K4tjKaoCBDZ39WdKOkCb27QH89Vw4z2Izk9VC0Kn6aQ=
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Encryption IV: jMxVNODWwZeAwI3lZKBfPQ==
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Performing AES encryption.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - AES instance created and configured.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - AES encryption completed.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Encryption successful.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Encrypted text: 3ivjsrN9irQacJtGYFSz0g==
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Starting decryption process.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Validating parameters for decryption.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Parameters validated successfully.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Decryption key: K4tjKaoCBDZ39WdKOkCb27QH89Vw4z2Izk9VC0Kn6aQ=
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Decryption IV: jMxVNODWwZeAwI3lZKBfPQ==
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Performing AES decryption.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - AES instance created and configured.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - AES decryption completed.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Decryption successful.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Decrypted text: password
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Starting verification process.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Verifying decrypted text against original plaintext.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Performing AES decryption.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - AES instance created and configured.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - AES decryption completed.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 1:55:47 PM - Verification successful.
+EncryptionDecryptionLogger Information: 0 : Encryption verified successfully.
+EncryptionDecryptionLogger Information: 0 : RSA algorithm selected.
+EncryptionDecryptionLogger Information: 0 : Encrypting text: password
+EncryptionDecryptionLogger Error: 0 : Error occurred: The best overloaded method match for 'EncyptionDecryption.Algorithms.RsaEncryption.Encrypt(string, System.Security.Cryptography.RSAParameters)' has some invalid arguments
+EncryptionDecryptionLogger Information: 0 : User chose to exit.
+EncryptionDecryptionLogger Information: 0 : RSA algorithm selected.
+EncryptionDecryptionLogger Information: 0 : Encrypting text: password
+EncryptionDecryptionLogger Error: 0 : Error occurred: The best overloaded method match for 'EncyptionDecryption.Algorithms.RsaEncryption.Encrypt(string, System.Security.Cryptography.RSAParameters)' has some invalid arguments
+EncryptionDecryptionLogger Information: 0 : User chose to exit.
+EncryptionDecryptionLogger Information: 0 : RSA algorithm selected.
+EncryptionDecryptionLogger Information: 0 : Encrypting text: password
+EncryptionDecryptionLogger Error: 0 : Error occurred: The best overloaded method match for 'EncyptionDecryption.Algorithms.RsaEncryption.Encrypt(string, System.Security.Cryptography.RSAParameters)' has some invalid arguments
+EncryptionDecryptionLogger Information: 0 : User chose to exit.
+EncryptionDecryptionLogger Information: 0 : RSA algorithm selected.
+EncryptionDecryptionLogger Information: 0 : Encrypting text: password
+EncryptionDecryptionLogger Error: 0 : Error occurred: Cannot apply indexing with [] to an expression of type 'System.ValueTuple<System.Security.Cryptography.RSAParameters,System.Security.Cryptography.RSAParameters>'
+EncryptionDecryptionLogger Information: 0 : User chose to exit.
+EncryptionDecryptionLogger Information: 0 : RSA algorithm selected.
+EncryptionDecryptionLogger Information: 0 : Encrypting text: password
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 2:16:23 PM - Starting RSA encryption process.
+EncryptionDecryptionLogger Error: 0 : 8/2/2024 2:16:23 PM - Encryption error: System.ArgumentException: Invalid RSA public key.
+   at EncyptionDecryption.Algorithms.RsaEncryption.Encrypt(String plaintext, RSAParameters parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RsaEncryption.cs:line 25
+EncryptionDecryptionLogger Error: 0 : Error occurred: An error occurred during encryption.
+EncryptionDecryptionLogger Information: 0 : User chose to exit.
+EncryptionDecryptionLogger Information: 0 : RSA algorithm selected.
+EncryptionDecryptionLogger Information: 0 : Encrypting text: password
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 2:24:48 PM - Starting RSA encryption process.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 2:24:48 PM - Performing RSA encryption.
+EncryptionDecryptionLogger Error: 0 : 8/2/2024 2:24:48 PM - Error in RsaEncrypt: System.Security.Cryptography.CryptographicException: Specified padding mode is not valid for this algorithm.
+   at System.Security.Cryptography.RSACryptoServiceProvider.Encrypt(Byte[] data, RSAEncryptionPadding padding)
+   at EncyptionDecryption.Algorithms.RsaEncryption.RsaEncrypt(String plaintext, RSAParameters publicKey) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RsaEncryption.cs:line 93
+EncryptionDecryptionLogger Error: 0 : 8/2/2024 2:24:48 PM - Encryption error: System.Security.Cryptography.CryptographicException: An error occurred during the RSA encryption process.
+ ---> System.Security.Cryptography.CryptographicException: Specified padding mode is not valid for this algorithm.
+   at System.Security.Cryptography.RSACryptoServiceProvider.Encrypt(Byte[] data, RSAEncryptionPadding padding)
+   at EncyptionDecryption.Algorithms.RsaEncryption.RsaEncrypt(String plaintext, RSAParameters publicKey) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RsaEncryption.cs:line 93
+   --- End of inner exception stack trace ---
+   at EncyptionDecryption.Algorithms.RsaEncryption.RsaEncrypt(String plaintext, RSAParameters publicKey) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RsaEncryption.cs:line 102
+   at EncyptionDecryption.Algorithms.RsaEncryption.Encrypt(String plaintext, RSAParameters parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RsaEncryption.cs:line 28
+EncryptionDecryptionLogger Error: 0 : Error occurred: An error occurred during encryption.
+EncryptionDecryptionLogger Information: 0 : User chose to exit.
+EncryptionDecryptionLogger Information: 0 : RSA algorithm selected.
+EncryptionDecryptionLogger Information: 0 : Encrypting text: password
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 2:27:41 PM - Starting RSA encryption process.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 2:27:41 PM - Performing RSA encryption.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 2:27:41 PM - RSA encryption completed.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 2:27:41 PM - RSA encryption successful.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 2:27:41 PM - Starting RSA decryption process.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 2:27:41 PM - Performing RSA decryption.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 2:27:41 PM - RSA decryption completed.
+EncryptionDecryptionLogger Information: 0 : 8/2/2024 2:27:41 PM - RSA decryption successful.
+EncryptionDecryptionLogger Information: 0 : User chose to exit.
