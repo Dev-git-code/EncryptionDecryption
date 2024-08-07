@@ -1,52 +1,52 @@
 ﻿using EncyptionDecryption.Exceptions;
 using EncyptionDecryption.Helpers;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
+using log4net;
 
 namespace EncyptionDecryption.Algorithms
 {
     public class AesSaltEncryption : IEncryptDecrypt<byte[][]>
     {
         private const int SaltSize = 16;
-        private readonly TraceSource traceSource;
+        private readonly ILog logger;
 
-        public AesSaltEncryption(TraceSource traceSource)
+        public AesSaltEncryption(ILog logger)
         {
-            this.traceSource = traceSource;
+            this.logger = logger;
         }
 
         public string Encrypt(string plaintext, params byte[][] parameters)
         {
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Starting encryption process.");
+                logger.Info("Starting encryption process.");
                 HelperMethods.ValidateParameters(parameters, 32, 16);
                 byte[] key = HelperMethods.GetParameter(parameters, 0);
                 byte[] iv = HelperMethods.GetParameter(parameters, 1);
 
-                traceSource.TraceInformation($"{DateTime.Now} - Validating parameters for encryption.");
+                logger.Info("Validating parameters for encryption.");
                 string salt = GenerateSalt();
-                traceSource.TraceInformation($"{DateTime.Now} - Generated Salt: {salt}");
+                logger.Info($"Generated Salt: {salt}");
                 string saltedPassword = salt + plaintext;
                 string encrypted = AesEncrypt(saltedPassword, key, iv);
-                traceSource.TraceInformation($"{DateTime.Now} - Encryption successful.");
+                logger.Info("Encryption successful.");
                 return salt + ":" + encrypted;
             }
             catch (ArgumentException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Argument error: {ex.Message}");
+                logger.Error($"Argument error: {ex.Message}", ex);
                 throw new EncryptionException("Invalid parameters provided for encryption.", ex);
             }
             catch (CryptographicException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Cryptographic error: {ex.Message}");
+                logger.Error($"Cryptographic error: {ex.Message}", ex);
                 throw new EncryptionException("An error occurred during encryption.", ex);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - General error: {ex.Message}");
+                logger.Error($"General error: {ex.Message}", ex);
                 throw new EncryptionException("An unknown error occurred during encryption.", ex);
             }
         }
@@ -55,38 +55,38 @@ namespace EncyptionDecryption.Algorithms
         {
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Starting decryption process.");
+                logger.Info("Starting decryption process.");
                 HelperMethods.ValidateParameters(parameters, 32, 16);
                 byte[] key = HelperMethods.GetParameter(parameters, 0);
                 byte[] iv = HelperMethods.GetParameter(parameters, 1);
 
-                traceSource.TraceInformation($"{DateTime.Now} - Validating parameters for decryption.");
+                logger.Info("Validating parameters for decryption.");
                 string[] parts = ciphertext.Split(':');
                 if (parts.Length != 2)
                 {
-                    traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Invalid ciphertext format.");
+                    logger.Error("Invalid ciphertext format.");
                     throw new ArgumentException("Invalid ciphertext format.");
                 }
 
                 string salt = parts[0];
                 string encryptedPassword = parts[1];
                 string decrypted = AesDecrypt(encryptedPassword, key, iv);
-                traceSource.TraceInformation($"{DateTime.Now} - Decryption successful.");
+                logger.Info("Decryption successful.");
                 return decrypted.Substring(salt.Length);
             }
             catch (ArgumentException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Argument error: {ex.Message}");
+                logger.Error($"Argument error: {ex.Message}", ex);
                 throw new DecryptionException("Invalid parameters or format provided for decryption.", ex);
             }
             catch (CryptographicException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Cryptographic error: {ex.Message}");
+                logger.Error($"Cryptographic error: {ex.Message}", ex);
                 throw new DecryptionException("An error occurred during decryption.", ex);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - General error: {ex.Message}");
+                logger.Error($"General error: {ex.Message}", ex);
                 throw new DecryptionException("An unknown error occurred during decryption.", ex);
             }
         }
@@ -95,15 +95,15 @@ namespace EncyptionDecryption.Algorithms
         {
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Starting verification process.");
+                logger.Info("Starting verification process.");
                 byte[] key = HelperMethods.GetParameter(parameters, 0);
                 byte[] iv = HelperMethods.GetParameter(parameters, 1);
 
-                traceSource.TraceInformation($"{DateTime.Now} - Validating parameters for verification.");
+                logger.Info("Validating parameters for verification.");
                 string[] parts = storedSaltedEncryptedPassword.Split(':');
                 if (parts.Length != 2)
                 {
-                    traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Invalid stored salted encrypted password format.");
+                    logger.Error("Invalid stored salted encrypted password format.");
                     throw new ArgumentException("Invalid stored salted encrypted password format.");
                 }
 
@@ -114,17 +114,17 @@ namespace EncyptionDecryption.Algorithms
                 bool result = decryptedPassword == enteredSaltedPassword;
                 if (result)
                 {
-                    traceSource.TraceInformation($"{DateTime.Now} - Verification successful.");
+                    logger.Info("Verification successful.");
                 }
                 else
                 {
-                    traceSource.TraceEvent(TraceEventType.Warning, 0, $"{DateTime.Now} - Verification failed.");
+                    logger.Warn("Verification failed.");
                 }
                 return result;
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Verification error: {ex.Message}");
+                logger.Error($"Verification error: {ex.Message}", ex);
                 return false;
             }
         }
@@ -133,24 +133,24 @@ namespace EncyptionDecryption.Algorithms
         {
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Generating salt.");
+                logger.Info("Generating salt.");
                 byte[] saltBytes = new byte[SaltSize];
                 using (var rng = new RNGCryptoServiceProvider())
                 {
                     rng.GetBytes(saltBytes);
                 }
                 string salt = Convert.ToBase64String(saltBytes);
-                traceSource.TraceInformation($"{DateTime.Now} - Generated salt: {salt}");
+                logger.Info($"Generated salt: {salt}");
                 return salt;
             }
             catch (CryptographicException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Error generating salt: {ex.Message}");
+                logger.Error($"Error generating salt: {ex.Message}", ex);
                 throw new EncryptionException("An error occurred during salt generation.", ex);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - General error generating salt: {ex.Message}");
+                logger.Error($"General error generating salt: {ex.Message}", ex);
                 throw new EncryptionException("An unknown error occurred during salt generation.", ex);
             }
         }
@@ -159,7 +159,7 @@ namespace EncyptionDecryption.Algorithms
         {
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Performing AES encryption.");
+                logger.Info("Performing AES encryption.");
                 using (Aes aes = Aes.Create())
                 {
                     aes.Key = key;
@@ -168,13 +168,13 @@ namespace EncyptionDecryption.Algorithms
                     using (MemoryStream memoryStream = new MemoryStream())
                     {
                         using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
-                        {
+                        {   
                             using (StreamWriter writer = new StreamWriter(cryptoStream))
                             {
                                 writer.Write(plaintext);
                             }
                             string encrypted = Convert.ToBase64String(memoryStream.ToArray());
-                            traceSource.TraceInformation($"{DateTime.Now} - AES encryption completed.");
+                            logger.Info("AES encryption completed.");
                             return encrypted;
                         }
                     }
@@ -182,12 +182,12 @@ namespace EncyptionDecryption.Algorithms
             }
             catch (CryptographicException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Error in AesEncrypt: {ex.Message}");
+                logger.Error($"Error in AesEncrypt: {ex.Message}", ex);
                 throw new EncryptionException("An error occurred during AES encryption.", ex);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - General error in AesEncrypt: {ex.Message}");
+                logger.Error($"General error in AesEncrypt: {ex.Message}", ex);
                 throw new EncryptionException("An unknown error occurred during AES encryption.", ex);
             }
         }
@@ -196,7 +196,7 @@ namespace EncyptionDecryption.Algorithms
         {
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Performing AES decryption.");
+                logger.Info("Performing AES decryption.");
                 byte[] cipheredtext = Convert.FromBase64String(ciphertext);
                 using (Aes aes = Aes.Create())
                 {
@@ -210,7 +210,7 @@ namespace EncyptionDecryption.Algorithms
                             using (StreamReader streamReader = new StreamReader(cryptoStream))
                             {
                                 string decrypted = streamReader.ReadToEnd();
-                                traceSource.TraceInformation($"{DateTime.Now} - AES decryption completed.");
+                                logger.Info("AES decryption completed.");
                                 return decrypted;
                             }
                         }
@@ -219,12 +219,12 @@ namespace EncyptionDecryption.Algorithms
             }
             catch (CryptographicException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Error in AesDecrypt: {ex.Message}");
+                logger.Error($"Error in AesDecrypt: {ex.Message}", ex);
                 throw new DecryptionException("An error occurred during AES decryption.", ex);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - General error in AesDecrypt: {ex.Message}");
+                logger.Error($"General error in AesDecrypt: {ex.Message}", ex);
                 throw new DecryptionException("An unknown error occurred during AES decryption.", ex);
             }
         }

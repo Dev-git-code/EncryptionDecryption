@@ -5,11 +5,12 @@ using log4net;
 
 namespace EncyptionDecryption.Algorithms
 {
-    public class RsaEncryption : IEncryptDecrypt<RSAParameters>
+    public class RsaSaltEncryption : IEncryptDecrypt<RSAParameters>
     {
         private readonly ILog logger;
+        private const int SaltSize = 16; // Size of the salt in bytes
 
-        public RsaEncryption(ILog logger)
+        public RsaSaltEncryption(ILog logger)
         {
             this.logger = logger;
         }
@@ -24,9 +25,11 @@ namespace EncyptionDecryption.Algorithms
                     throw new ArgumentException("Invalid RSA public key.");
                 }
 
-                string encrypted = RsaEncrypt(plaintext, parameters);
+                string salt = GenerateSalt();
+                string saltedPlaintext = salt + plaintext;
+                string encrypted = RsaEncrypt(saltedPlaintext, parameters);
                 logger.Info("RSA encryption successful.");
-                return encrypted;
+                return salt + ":" + encrypted;
             }
             catch (Exception ex)
             {
@@ -45,9 +48,17 @@ namespace EncyptionDecryption.Algorithms
                     throw new ArgumentException("Invalid RSA private key.");
                 }
 
-                string decrypted = RsaDecrypt(ciphertext, parameters);
+                string[] parts = ciphertext.Split(':');
+                if (parts.Length != 2)
+                {
+                    throw new ArgumentException("Invalid ciphertext format.");
+                }
+
+                string salt = parts[0];
+                string encryptedText = parts[1];
+                string decrypted = RsaDecrypt(encryptedText, parameters);
                 logger.Info("RSA decryption successful.");
-                return decrypted;
+                return decrypted.Substring(salt.Length);
             }
             catch (Exception ex)
             {
@@ -56,27 +67,50 @@ namespace EncyptionDecryption.Algorithms
             }
         }
 
-        public bool Verify(string plaintext, string hash, RSAParameters parameters)
+        public bool Verify(string plaintext, string storedSaltedEncryptedPassword, RSAParameters parameters)
         {
             try
             {
                 logger.Info("Starting RSA verification process.");
-                string decryptedHash = Decrypt(hash, parameters);
-                bool result = decryptedHash == plaintext;
-                if (result)
+                string[] parts = storedSaltedEncryptedPassword.Split(':');
+                if (parts.Length != 2)
                 {
-                    logger.Info("RSA verification successful.");
+                    throw new ArgumentException("Invalid stored salted encrypted password format.");
                 }
-                else
-                {
-                    logger.Warn("RSA verification failed.");
-                }
-                return result;
+
+                string salt = parts[0];
+                string storedEncryptedPassword = parts[1];
+                string enteredSaltedPassword = salt + plaintext;
+                string decryptedPassword = Decrypt(salt + ":" + storedEncryptedPassword, parameters);
+                bool isVerified = decryptedPassword == plaintext;
+                logger.Info($"RSA verification {(isVerified ? "successful" : "failed")}.");
+                return isVerified;
             }
             catch (Exception ex)
             {
                 logger.Error("Verification error.", ex);
                 throw new CryptographicException("An error occurred during verification.", ex);
+            }
+        }
+
+        private string GenerateSalt()
+        {
+            try
+            {
+                logger.Info("Generating salt.");
+                byte[] saltBytes = new byte[SaltSize];
+                using (var rng = new RNGCryptoServiceProvider())
+                {
+                    rng.GetBytes(saltBytes);
+                }
+                string salt = Convert.ToBase64String(saltBytes);
+                logger.Info("Salt generation successful.");
+                return salt;
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Salt generation error.", ex);
+                throw new CryptographicException("An error occurred during salt generation.", ex);
             }
         }
 

@@ -1,120 +1,124 @@
 ﻿using EncyptionDecryption;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
 using EncyptionDecryption.Helpers;
+using log4net;
 
 namespace EncyptionDecryption.Algorithms
 {
     public class DesEncryption : IEncryptDecrypt<byte[][]>
     {
-        private readonly TraceSource traceSource;
+        private readonly ILog _logger;
 
-        public DesEncryption(TraceSource traceSource)
+        public DesEncryption(ILog logger)
         {
-            this.traceSource = traceSource;
+            _logger = logger;
         }
 
         public string Encrypt(string plaintext, params byte[][] parameters)
         {
+            _logger.Info("Starting DES encryption process.");
+
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Starting DES encryption process.");
                 HelperMethods.ValidateParameters(parameters, 8, 8);
                 byte[] key = HelperMethods.GetParameter(parameters, 0);
                 byte[] iv = HelperMethods.GetParameter(parameters, 1);
                 string encrypted = DesEncrypt(plaintext, key, iv);
-                traceSource.TraceInformation($"{DateTime.Now} - DES encryption successful.");
+                _logger.Info("DES encryption successful.");
                 return encrypted;
             }
             catch (ArgumentException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Argument error: {ex.Message}");
+                _logger.Error($"Argument error: {ex.Message}", ex);
                 throw new CryptographicException("Invalid parameters provided for encryption.", ex);
             }
             catch (CryptographicException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Cryptographic error: {ex.Message}");
+                _logger.Error($"Cryptographic error: {ex.Message}", ex);
                 throw new CryptographicException("An error occurred during encryption.", ex);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - General error: {ex.Message}");
+                _logger.Error($"General error: {ex.Message}", ex);
                 throw new CryptographicException("An unknown error occurred during encryption.", ex);
             }
         }
 
         public string Decrypt(string ciphertext, params byte[][] parameters)
         {
+            _logger.Info("Starting DES decryption process.");
+
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Starting DES decryption process.");
                 HelperMethods.ValidateParameters(parameters, 8, 8);
                 byte[] key = HelperMethods.GetParameter(parameters, 0);
                 byte[] iv = HelperMethods.GetParameter(parameters, 1);
                 string decrypted = DesDecrypt(ciphertext, key, iv);
-                traceSource.TraceInformation($"{DateTime.Now} - DES decryption successful.");
+                _logger.Info("DES decryption successful.");
                 return decrypted;
             }
             catch (ArgumentException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Argument error: {ex.Message}");
+                _logger.Error($"Argument error: {ex.Message}", ex);
                 throw new CryptographicException("Invalid parameters provided for decryption.", ex);
             }
             catch (CryptographicException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Cryptographic error: {ex.Message}");
+                _logger.Error($"Cryptographic error: {ex.Message}", ex);
                 throw new CryptographicException("An error occurred during decryption.", ex);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - General error: {ex.Message}");
+                _logger.Error($"General error: {ex.Message}", ex);
                 throw new CryptographicException("An unknown error occurred during decryption.", ex);
             }
         }
 
         public bool Verify(string plaintext, string hash, params byte[][] parameters)
         {
+            _logger.Info("Starting DES verification process.");
+
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Starting DES verification process.");
                 byte[] key = HelperMethods.GetParameter(parameters, 0);
                 byte[] iv = HelperMethods.GetParameter(parameters, 1);
                 string decrypted = DesDecrypt(hash, key, iv);
                 bool result = decrypted == plaintext;
                 if (result)
                 {
-                    traceSource.TraceInformation($"{DateTime.Now} - DES verification successful.");
+                    _logger.Info("DES verification successful.");
                 }
                 else
                 {
-                    traceSource.TraceEvent(TraceEventType.Warning, 0, $"{DateTime.Now} - DES verification failed.");
+                    _logger.Warn("DES verification failed.");
                 }
                 return result;
             }
             catch (ArgumentException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Argument error: {ex.Message}");
+                _logger.Error($"Argument error: {ex.Message}", ex);
                 throw new CryptographicException("Invalid parameters provided for verification.", ex);
             }
             catch (CryptographicException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Cryptographic error: {ex.Message}");
+                _logger.Error($"Cryptographic error: {ex.Message}", ex);
                 throw new CryptographicException("An error occurred during verification.", ex);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - General error: {ex.Message}");
+                _logger.Error($"General error: {ex.Message}", ex);
                 throw new CryptographicException("An unknown error occurred during verification.", ex);
             }
         }
 
         private string DesEncrypt(string plaintext, byte[] key, byte[] iv)
         {
+            _logger.Info("Performing DES encryption.");
+
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Performing DES encryption.");
                 byte[] cipheredtext;
                 using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
                 {
@@ -132,26 +136,27 @@ namespace EncyptionDecryption.Algorithms
                     }
                 }
                 string encrypted = Convert.ToBase64String(cipheredtext);
-                traceSource.TraceInformation($"{DateTime.Now} - DES encryption completed.");
+                _logger.Info("DES encryption completed.");
                 return encrypted;
             }
             catch (CryptographicException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Error in DesEncrypt: {ex.Message}");
+                _logger.Error($"Error in DesEncrypt: {ex.Message}", ex);
                 throw new CryptographicException("An error occurred during the DES encryption process.", ex);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - General error in DesEncrypt: {ex.Message}");
+                _logger.Error($"General error in DesEncrypt: {ex.Message}", ex);
                 throw new CryptographicException("An unknown error occurred during the DES encryption process.", ex);
             }
         }
 
         private string DesDecrypt(string ciphertext, byte[] key, byte[] iv)
         {
+            _logger.Info("Performing DES decryption.");
+
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Performing DES decryption.");
                 byte[] cipheredtext = Convert.FromBase64String(ciphertext);
                 string simpletext;
                 using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
@@ -168,17 +173,17 @@ namespace EncyptionDecryption.Algorithms
                         }
                     }
                 }
-                traceSource.TraceInformation($"{DateTime.Now} - DES decryption completed.");
+                _logger.Info("DES decryption completed.");
                 return simpletext;
             }
             catch (CryptographicException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Error in DesDecrypt: {ex.Message}");
+                _logger.Error($"Error in DesDecrypt: {ex.Message}", ex);
                 throw new CryptographicException("An error occurred during the DES decryption process.", ex);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - General error in DesDecrypt: {ex.Message}");
+                _logger.Error($"General error in DesDecrypt: {ex.Message}", ex);
                 throw new CryptographicException("An unknown error occurred during the DES decryption process.", ex);
             }
         }

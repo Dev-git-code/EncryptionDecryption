@@ -1,152 +1,158 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
 using EncyptionDecryption.Algorithms;
 using EncyptionDecryption.Helpers;
+using log4net;
+using log4net.Config;
 
-namespace EncyptionDecryption
+namespace EncryptionDecryption
 {
     public class Program
     {
-        public static TraceSource traceSource = new TraceSource("EncryptionDecryptionLogger");
+        private static readonly ILog Logger = LogManager.GetLogger(typeof(Program));
 
-        static Program()
+        static void Main(string[] args)
         {
-            // Set up the log file path
-            string logFilePath = "C:\\Users\\kanch\\source\\repos\\EncyptionDecryption\\encryption_decryption_log.txt";
-            Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
-
-            // Configure the TraceSource
-            TraceListener fileListener = new TextWriterTraceListener(logFilePath);
-            traceSource.Listeners.Add(fileListener);
-            traceSource.Switch = new SourceSwitch("SourceSwitch", "All");
-            traceSource.Listeners["Default"].TraceOutputOptions = TraceOptions.DateTime | TraceOptions.Timestamp;
-        }
-         
-        public static void Main(string[] args)
-        {
-            string filePath = "C:\\Users\\kanch\\source\\repos\\EncyptionDecryption\\appsettings.json";
-
-            while (true)
+            try
             {
-                Console.WriteLine("Choose an algorithm:");
-                Console.WriteLine("1. AES");
-                Console.WriteLine("2. DES");
-                Console.WriteLine("3. AES Salt");
-                Console.WriteLine("4. DES Salt");
-                Console.WriteLine("5. RSA");
-                Console.WriteLine("6. Exit");
-                int choice = int.Parse(Console.ReadLine());
-
-                dynamic? encryptDecrypt = null;
-                dynamic? parameters = null;
-                string algorithm = "";
-                dynamic publicKeyFromFile = null, privateKeyFromFile = null;
-
-                if (choice == 6)
+                // Configure log4net using the configuration file
+                var logRepository = LogManager.GetRepository(System.Reflection.Assembly.GetEntryAssembly());
+                string log4netConfigPath = "C:\\Users\\kanch\\source\\repos\\EncyptionDecryption\\log4net.config"; // Ensure this path is correct
+                if (!File.Exists(log4netConfigPath))
                 {
-                    traceSource.TraceInformation("User chose to exit.");
-                    Console.WriteLine("Exiting...");
-                    break;
+                    Logger.Error($"Log4net configuration file not found at path: {log4netConfigPath}");
+                    return;
                 }
 
-                try
+                XmlConfigurator.Configure(logRepository, new FileInfo(log4netConfigPath));
+
+                // Ensure the log directory exists
+                string logFilePath = "C:\\Users\\kanch\\source\\repos\\EncyptionDecryption\\encryption_decryption_log.txt";
+                string logDirectory = Path.GetDirectoryName(Path.GetFullPath(logFilePath));
+                if (!Directory.Exists(logDirectory))
                 {
-                    switch (choice)
+                    Directory.CreateDirectory(logDirectory);
+                }
+
+                string filePath = "C:\\Users\\kanch\\source\\repos\\EncyptionDecryption\\appsettings.json";
+
+                while (true)
+                {
+                    Console.Write("Choose an algorithm:\n1. AES\n2. DES\n3. AES Salt\n4. DES Salt\n5. RSA\n6. RSA with Salt\n7. Exit\n");
+                    string input = Console.ReadLine(); // Capture user input for algorithm choice
+                    if (int.TryParse(input, out int choice))
                     {
-                        case 1:
-                            algorithm = "AES";
-                            var aesParameters = HelperMethods.GenerateRandomKeyAndIV(32, 16);
-                            HelperMethods.WriteKeyAndIVToAppSettings(algorithm, aesParameters, filePath);
-                            encryptDecrypt = new AesEncryption(traceSource);
-                            parameters = HelperMethods.ReadKeyAndIVFromAppSettings(algorithm, filePath);
-                            traceSource.TraceInformation("AES algorithm selected.");
+                        dynamic encryptDecrypt = null;
+                        dynamic parameters = null;
+                        string algorithm = "";
+                        dynamic publicKeyFromFile = null, privateKeyFromFile = null;
+
+                        if (choice == 7)
+                        {
+                            Logger.Info("User chose to exit.");
                             break;
+                        }
 
-                        case 2:
-                            algorithm = "DES";
-                            var desParameters = HelperMethods.GenerateRandomKeyAndIV(8, 8);
-                            HelperMethods.WriteKeyAndIVToAppSettings(algorithm, desParameters, filePath);
-                            encryptDecrypt = new DesEncryption(traceSource);
-                            parameters = HelperMethods.ReadKeyAndIVFromAppSettings(algorithm, filePath);
-                            traceSource.TraceInformation("DES algorithm selected.");
-                            break;
+                        try
+                        {
+                            switch (choice)
+                            {
+                                case 1:
+                                    algorithm = "AES";
+                                    var aesParameters = HelperMethods.GenerateRandomKeyAndIV(32, 16);
+                                    HelperMethods.WriteKeyAndIVToAppSettings(algorithm, aesParameters, filePath);
+                                    encryptDecrypt = new AesEncryption(Logger);
+                                    parameters = HelperMethods.ReadKeyAndIVFromAppSettings(algorithm, filePath);
+                                    Logger.Info("AES algorithm selected.");
+                                    break;
 
-                        case 3:
-                            algorithm = "AES_Salt";
-                            var aesSaltParameters = HelperMethods.GenerateRandomKeyAndIV(32, 16);
-                            HelperMethods.WriteKeyAndIVToAppSettings(algorithm, aesSaltParameters, filePath);
-                            encryptDecrypt = new AesSaltEncryption(traceSource);
-                            parameters = HelperMethods.ReadKeyAndIVFromAppSettings(algorithm, filePath);
-                            traceSource.TraceInformation("AES with Salt algorithm selected.");
-                            break;
+                                case 2:
+                                    algorithm = "DES";
+                                    var desParameters = HelperMethods.GenerateRandomKeyAndIV(8, 8);
+                                    HelperMethods.WriteKeyAndIVToAppSettings(algorithm, desParameters, filePath);
+                                    encryptDecrypt = new DesEncryption(Logger);
+                                    parameters = HelperMethods.ReadKeyAndIVFromAppSettings(algorithm, filePath);
+                                    Logger.Info("DES algorithm selected.");
+                                    break;
 
-                        case 4:
-                            algorithm = "DES_Salt";
-                            var desSaltParameters = HelperMethods.GenerateRandomKeyAndIV(8, 8);
-                            HelperMethods.WriteKeyAndIVToAppSettings(algorithm, desSaltParameters, filePath);
-                            encryptDecrypt = new DesSaltEncryption(traceSource);
-                            parameters = HelperMethods.ReadKeyAndIVFromAppSettings(algorithm, filePath);
-                            traceSource.TraceInformation("DES with Salt algorithm selected.");
-                            break;
+                                case 3:
+                                    algorithm = "AES_Salt";
+                                    var aesSaltParameters = HelperMethods.GenerateRandomKeyAndIV(32, 16);
+                                    HelperMethods.WriteKeyAndIVToAppSettings(algorithm, aesSaltParameters, filePath);
+                                    encryptDecrypt = new AesSaltEncryption(Logger);
+                                    parameters = HelperMethods.ReadKeyAndIVFromAppSettings(algorithm, filePath);
+                                    Logger.Info("AES with Salt algorithm selected.");
+                                    break;
 
-                        case 5:
-                            algorithm = "RSA";
-                            (publicKeyFromFile, privateKeyFromFile) = HelperMethods.GenerateRsaKeyPair(2048); // Generate RSA key pair
-                            //HelperMethods.WriteRsaKeysToAppSettings(algorithm, publicKey, privateKey, filePath);
-                            encryptDecrypt = new RsaEncryption(traceSource);
-                           // (publicKeyFromFile, privateKeyFromFile) = HelperMethods.ReadRsaKeysFromAppSettings(algorithm, filePath);
-                            traceSource.TraceInformation("RSA algorithm selected.");
-                            break;
+                                case 4:
+                                    algorithm = "DES_Salt";
+                                    var desSaltParameters = HelperMethods.GenerateRandomKeyAndIV(8, 8);
+                                    HelperMethods.WriteKeyAndIVToAppSettings(algorithm, desSaltParameters, filePath);
+                                    encryptDecrypt = new DesSaltEncryption(Logger);
+                                    parameters = HelperMethods.ReadKeyAndIVFromAppSettings(algorithm, filePath);
+                                    Logger.Info("DES with Salt algorithm selected.");
+                                    break;
 
-                        default:
-                            traceSource.TraceEvent(TraceEventType.Warning, 0, "Invalid choice.");
-                            Console.WriteLine("Invalid choice.");
-                            return;
-                    }
+                                case 5:
+                                    algorithm = "RSA";
+                                    (publicKeyFromFile, privateKeyFromFile) = HelperMethods.GenerateRsaKeyPair(2048);
+                                    encryptDecrypt = new RsaEncryption(Logger);
+                                    Logger.Info("RSA algorithm selected.");
+                                    break;
 
-                    Console.Write("Enter the text to encrypt: ");
-                    string? plaintext = Console.ReadLine();
+                                case 6:
+                                    algorithm = "RSA_Salt";
+                                    (publicKeyFromFile, privateKeyFromFile) = HelperMethods.GenerateRsaKeyPair(2048);
+                                    encryptDecrypt = new RsaSaltEncryption(Logger);
+                                    Logger.Info("RSA algorithm selected.");
+                                    break;
 
-                    traceSource.TraceInformation($"Encrypting text: {plaintext}");
+                                default:
+                                    Logger.Error("Invalid choice.");
+                                    continue; 
+                            }
 
-                    if (algorithm == "RSA")
-                    {
-                        string encrypted = encryptDecrypt.Encrypt(plaintext, publicKeyFromFile);
-                        Console.WriteLine($"Encrypted: {encrypted}");
+                            Console.WriteLine("Enter the text to encrypt: ");
+                            string plaintext = Console.ReadLine();
 
-                        string decrypted = encryptDecrypt.Decrypt(encrypted, privateKeyFromFile);
-                        Console.WriteLine($"Decrypted: {decrypted}");
+                            Logger.Info($"Encrypting text: {plaintext}");
 
+                            if (algorithm == "RSA")
+                            {
+                                string encrypted = encryptDecrypt.Encrypt(plaintext, publicKeyFromFile);
+                                Logger.Info($"Encrypted: {encrypted}");
+
+                                string decrypted = encryptDecrypt.Decrypt(encrypted, privateKeyFromFile);
+                                Logger.Info($"Decrypted: {decrypted}");
+                            }
+                            else
+                            {
+                                string encrypted = encryptDecrypt.Encrypt(plaintext, parameters);
+                                Logger.Info($"Encrypted: {encrypted}");
+
+                                string decrypted = encryptDecrypt.Decrypt(encrypted, parameters);
+                                Logger.Info($"Decrypted: {decrypted}");
+
+                                bool verify = encryptDecrypt.Verify(plaintext, encrypted, parameters);
+                                if (verify) Logger.Info("Encryption verified successfully.");
+                                else Logger.Error("Encryption verification failed.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Logger.Error($"Error occurred during encryption/decryption: {ex.Message}", ex);
+                        }
                     }
                     else
                     {
-                        string encrypted = encryptDecrypt.Encrypt(plaintext, parameters);
-                        Console.WriteLine($"Encrypted: {encrypted}");
-
-                        string decrypted = encryptDecrypt.Decrypt(encrypted, parameters);
-                        Console.WriteLine($"Decrypted: {decrypted}");
-
-                        bool verify = encryptDecrypt.Verify(plaintext, encrypted, parameters);
-                        if (verify) traceSource.TraceInformation("Encryption verified successfully.");
-                        else traceSource.TraceEvent(TraceEventType.Warning, 0, "Encryption verification failed.");
-
-                        Console.WriteLine(verify ? "Verified Encryption\n" : "Encryption could not be verified\n");
+                        Logger.Error("Invalid choice.");
                     }
-
-                    
-                }
-                catch (Exception ex)
-                {
-                    traceSource.TraceEvent(TraceEventType.Error, 0, $"Error occurred: {ex.Message}");
-                    Console.WriteLine("An error occurred during encryption/decryption. Check the log file for details.");
                 }
             }
-
-            traceSource.Flush();
-            traceSource.Close();
+            catch (Exception ex)
+            {
+                Logger.Error($"Initialization error: {ex.Message}", ex);
+            }
         }
     }
 }

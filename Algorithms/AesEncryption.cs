@@ -1,152 +1,134 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
 using EncyptionDecryption.Exceptions;
 using EncyptionDecryption.Helpers;
+using EncyptionDecryption;
+using log4net;
 
 namespace EncyptionDecryption.Algorithms
 {
     public class AesEncryption : IEncryptDecrypt<byte[][]>
     {
-        private TraceSource traceSource;
+        private readonly ILog _logger;
 
-        public AesEncryption(TraceSource traceSource)
+        public AesEncryption(ILog logger)
         {
-            this.traceSource = traceSource;
+            _logger = logger;
         }
 
         public string Encrypt(string plaintext, params byte[][] parameters)
         {
-            traceSource.TraceInformation($"{DateTime.Now} - Starting encryption process.");
-            traceSource.Flush();
+            _logger.Info("Starting encryption process.");
 
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Validating parameters for encryption.");
-                traceSource.Flush();
+                _logger.Info("Validating parameters for encryption.");
                 HelperMethods.ValidateParameters(parameters, 32, 16);
 
                 byte[] key = HelperMethods.GetParameter(parameters, 0);
                 byte[] iv = HelperMethods.GetParameter(parameters, 1);
 
-                traceSource.TraceInformation($"{DateTime.Now} - Parameters validated successfully.");
-                traceSource.TraceInformation($"{DateTime.Now} - Encryption key: {Convert.ToBase64String(key)}");
-                traceSource.TraceInformation($"{DateTime.Now} - Encryption IV: {Convert.ToBase64String(iv)}");
-                traceSource.Flush();
+                _logger.Info("Parameters validated successfully.");
+                _logger.Info($"Encryption key: {Convert.ToBase64String(key)}");
+                _logger.Info($"Encryption IV: {Convert.ToBase64String(iv)}");
 
                 string encrypted = AesEncrypt(plaintext, key, iv);
-                traceSource.TraceInformation($"{DateTime.Now} - Encryption successful.");
-                traceSource.TraceInformation($"{DateTime.Now} - Encrypted text: {encrypted}");
-                traceSource.Flush();
+                _logger.Info("Encryption successful.");
+                _logger.Info($"Encrypted text: {encrypted}");
 
                 return encrypted;
             }
             catch (ArgumentException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Argument error: {ex.Message}");
-                traceSource.Flush();
+                _logger.Error("Argument error: " + ex.Message, ex);
                 throw new EncryptionException("Invalid parameters provided for encryption.", ex);
             }
             catch (CryptographicException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Cryptographic error: {ex.Message}");
-                traceSource.Flush();
+                _logger.Error("Cryptographic error: " + ex.Message, ex);
                 throw new EncryptionException("An error occurred during encryption.", ex);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - General error: {ex.Message}");
-                traceSource.Flush();
+                _logger.Error("General error: " + ex.Message, ex);
                 throw new EncryptionException("An unknown error occurred during encryption.", ex);
             }
         }
 
         public string Decrypt(string ciphertext, params byte[][] parameters)
         {
-            traceSource.TraceInformation($"{DateTime.Now} - Starting decryption process.");
-            traceSource.Flush();
+            _logger.Info("Starting decryption process.");
 
             try
             {
-                traceSource.TraceInformation($"{DateTime.Now} - Validating parameters for decryption.");
-                traceSource.Flush();
+                _logger.Info("Validating parameters for decryption.");
                 HelperMethods.ValidateParameters(parameters, 32, 16);
 
                 byte[] key = HelperMethods.GetParameter(parameters, 0);
                 byte[] iv = HelperMethods.GetParameter(parameters, 1);
 
-                traceSource.TraceInformation($"{DateTime.Now} - Parameters validated successfully.");
-                traceSource.TraceInformation($"{DateTime.Now} - Decryption key: {Convert.ToBase64String(key)}");
-                traceSource.TraceInformation($"{DateTime.Now} - Decryption IV: {Convert.ToBase64String(iv)}");
-                traceSource.Flush();
+                _logger.Info("Parameters validated successfully.");
+                _logger.Info($"Decryption key: {Convert.ToBase64String(key)}");
+                _logger.Info($"Decryption IV: {Convert.ToBase64String(iv)}");
 
                 string decrypted = AesDecrypt(ciphertext, key, iv);
-                traceSource.TraceInformation($"{DateTime.Now} - Decryption successful.");
-                traceSource.TraceInformation($"{DateTime.Now} - Decrypted text: {decrypted}");
-                traceSource.Flush();
+                _logger.Info("Decryption successful.");
+                _logger.Info($"Decrypted text: {decrypted}");
 
                 return decrypted;
             }
             catch (ArgumentException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Argument error: {ex.Message}");
-                traceSource.Flush();
+                _logger.Error("Argument error: " + ex.Message, ex);
                 throw new DecryptionException("Invalid parameters provided for decryption.", ex);
             }
             catch (CryptographicException ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Cryptographic error: {ex.Message}");
-                traceSource.Flush();
+                _logger.Error("Cryptographic error: " + ex.Message, ex);
                 throw new DecryptionException("An error occurred during decryption.", ex);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - General error: {ex.Message}");
-                traceSource.Flush();
+                _logger.Error("General error: " + ex.Message, ex);
                 throw new DecryptionException("An unknown error occurred during decryption.", ex);
             }
         }
 
         public bool Verify(string plaintext, string hash, params byte[][] parameters)
         {
-            traceSource.TraceInformation($"{DateTime.Now} - Starting verification process.");
-            traceSource.Flush();
+            _logger.Info("Starting verification process.");
 
             try
             {
                 byte[] key = HelperMethods.GetParameter(parameters, 0);
                 byte[] iv = HelperMethods.GetParameter(parameters, 1);
 
-                traceSource.TraceInformation($"{DateTime.Now} - Verifying decrypted text against original plaintext.");
-                traceSource.Flush();
+                _logger.Info("Verifying decrypted text against original plaintext.");
                 string decrypted = AesDecrypt(hash, key, iv);
                 bool isVerified = decrypted == plaintext;
 
                 if (isVerified)
                 {
-                    traceSource.TraceInformation($"{DateTime.Now} - Verification successful.");
+                    _logger.Info("Verification successful.");
                 }
                 else
                 {
-                    traceSource.TraceInformation($"{DateTime.Now} - Verification failed.");
+                    _logger.Info("Verification failed.");
                 }
-                traceSource.Flush();
 
                 return isVerified;
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Verification error: {ex.Message}");
-                traceSource.Flush();
+                _logger.Error("Verification error: " + ex.Message, ex);
                 return false;
             }
         }
 
         private string AesEncrypt(string plaintext, byte[] key, byte[] iv)
         {
-            traceSource.TraceInformation($"{DateTime.Now} - Performing AES encryption.");
-            traceSource.Flush();
+            _logger.Info("Performing AES encryption.");
 
             try
             {
@@ -156,8 +138,7 @@ namespace EncyptionDecryption.Algorithms
                     aes.Key = key;
                     aes.IV = iv;
 
-                    traceSource.TraceInformation($"{DateTime.Now} - AES instance created and configured.");
-                    traceSource.Flush();
+                    _logger.Info("AES instance created and configured.");
                     ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
 
                     using (MemoryStream memoryStream = new MemoryStream())
@@ -174,22 +155,19 @@ namespace EncyptionDecryption.Algorithms
                     }
                 }
 
-                traceSource.TraceInformation($"{DateTime.Now} - AES encryption completed.");
-                traceSource.Flush();
+                _logger.Info("AES encryption completed.");
                 return Convert.ToBase64String(cipheredtext);
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Error in AesEncrypt: {ex.Message}");
-                traceSource.Flush();
+                _logger.Error("Error in AesEncrypt: " + ex.Message, ex);
                 throw new EncryptionException("An error occurred during AES encryption.", ex);
             }
         }
 
         private string AesDecrypt(string ciphertext, byte[] key, byte[] iv)
         {
-            traceSource.TraceInformation($"{DateTime.Now} - Performing AES decryption.");
-            traceSource.Flush();
+            _logger.Info("Performing AES decryption.");
 
             try
             {
@@ -199,8 +177,7 @@ namespace EncyptionDecryption.Algorithms
                     aes.Key = key;
                     aes.IV = iv;
 
-                    traceSource.TraceInformation($"{DateTime.Now} - AES instance created and configured.");
-                    traceSource.Flush();
+                    _logger.Info("AES instance created and configured.");
                     ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
                     using (MemoryStream memoryStream = new MemoryStream(cipheredtext))
@@ -210,8 +187,7 @@ namespace EncyptionDecryption.Algorithms
                             using (StreamReader streamReader = new StreamReader(cryptoStream))
                             {
                                 string result = streamReader.ReadToEnd();
-                                traceSource.TraceInformation($"{DateTime.Now} - AES decryption completed.");
-                                traceSource.Flush();
+                                _logger.Info("AES decryption completed.");
                                 return result;
                             }
                         }
@@ -220,8 +196,7 @@ namespace EncyptionDecryption.Algorithms
             }
             catch (Exception ex)
             {
-                traceSource.TraceEvent(TraceEventType.Error, 0, $"{DateTime.Now} - Error in AesDecrypt: {ex.Message}");
-                traceSource.Flush();
+                _logger.Error("Error in AesDecrypt: " + ex.Message, ex);
                 throw new DecryptionException("An error occurred during AES decryption.", ex);
             }
         }
