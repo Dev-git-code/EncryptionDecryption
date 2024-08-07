@@ -8,10 +8,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="ConfigurationEncryptionProvider\.vs\ConfigurationEncryptionProvider\v17\DocumentLayout.json" />
+    <Content Include="ConfigurationEncryptionProvider\.vs\ProjectSettings.json" />
+    <Content Include="ConfigurationEncryptionProvider\.vs\VSWorkspaceState.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ConfigurationEncryptionProvider\.vs\ConfigurationEncryptionProvider\FileContentIndex\7ebe5a7e-10e9-4347-b92d-bdc7cd17f857.vsidx" />
+    <None Include="ConfigurationEncryptionProvider\.vs\ConfigurationEncryptionProvider\FileContentIndex\eaae5283-00c1-43c1-a560-fb78898dbd34.vsidx" />
+    <None Include="ConfigurationEncryptionProvider\.vs\slnx.sqlite" />
+    <None Include="ConfigurationEncryptionProvider\ConfigurationEncryptionProvider.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.17" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ConfigurationEncryptionProvider\bin\Debug\netstandard2.1\" />
+    <Folder Include="ConfigurationEncryptionProvider\bin\Release\netstandard2.1\" />
   </ItemGroup>
 
 </Project>

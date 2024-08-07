@@ -38,7 +38,7 @@ namespace EncryptionDecryption
 
                 while (true)
                 {
-                    Console.Write("Choose an algorithm:\n1. AES\n2. DES\n3. AES Salt\n4. DES Salt\n5. RSA\n6. RSA with Salt\n7. Exit\n");
+                    Console.Write("Choose an algorithm:\n1. AES\n2. DES\n3. AES Salt\n4. DES Salt\n5. RSA\n6. RSA with Salt\n7. SRMS Encrypt\n8. Exit\n");
                     string input = Console.ReadLine(); // Capture user input for algorithm choice
                     if (int.TryParse(input, out int choice))
                     {
@@ -47,7 +47,7 @@ namespace EncryptionDecryption
                         string algorithm = "";
                         dynamic publicKeyFromFile = null, privateKeyFromFile = null;
 
-                        if (choice == 7)
+                        if (choice == 8)
                         {
                             Logger.Info("User chose to exit.");
                             break;
@@ -107,35 +107,48 @@ namespace EncryptionDecryption
                                     Logger.Info("RSA algorithm selected.");
                                     break;
 
+                                case 7:
+                                    algorithm = "SRMS";
+                                    string appSettingsfilePath = "C:\\Users\\kanch\\source\\repos\\EncyptionDecryption\\appsettings.json";
+                                    var srms = new SRMSEncryption(Logger);
+                                   // Console.WriteLine("Enter the text to encrypt: ");
+                                   // string plaintext = Console.ReadLine()?? "password";
+                                    srms.EncryptString("password", appSettingsfilePath);
+                                    Logger.Info("SRMS encryption selected.");
+                                    break;
+
                                 default:
                                     Logger.Error("Invalid choice.");
                                     continue; 
                             }
 
-                            Console.WriteLine("Enter the text to encrypt: ");
-                            string plaintext = Console.ReadLine();
-
-                            Logger.Info($"Encrypting text: {plaintext}");
-
-                            if (algorithm == "RSA")
+                            if (algorithm != "SRMS")
                             {
-                                string encrypted = encryptDecrypt.Encrypt(plaintext, publicKeyFromFile);
-                                Logger.Info($"Encrypted: {encrypted}");
+                                Console.WriteLine("Enter the text to encrypt: ");
+                                string plaintext = Console.ReadLine();
 
-                                string decrypted = encryptDecrypt.Decrypt(encrypted, privateKeyFromFile);
-                                Logger.Info($"Decrypted: {decrypted}");
-                            }
-                            else
-                            {
-                                string encrypted = encryptDecrypt.Encrypt(plaintext, parameters);
-                                Logger.Info($"Encrypted: {encrypted}");
+                                Logger.Info($"Encrypting text: {plaintext}");
 
-                                string decrypted = encryptDecrypt.Decrypt(encrypted, parameters);
-                                Logger.Info($"Decrypted: {decrypted}");
+                                if (algorithm == "RSA")
+                                {
+                                    string encrypted = encryptDecrypt.Encrypt(plaintext, publicKeyFromFile);
+                                    Logger.Info($"Encrypted: {encrypted}");
 
-                                bool verify = encryptDecrypt.Verify(plaintext, encrypted, parameters);
-                                if (verify) Logger.Info("Encryption verified successfully.");
-                                else Logger.Error("Encryption verification failed.");
+                                    string decrypted = encryptDecrypt.Decrypt(encrypted, privateKeyFromFile);
+                                    Logger.Info($"Decrypted: {decrypted}");
+                                }
+                                else
+                                {
+                                    string encrypted = encryptDecrypt.Encrypt(plaintext, parameters);
+                                    Logger.Info($"Encrypted: {encrypted}");
+
+                                    string decrypted = encryptDecrypt.Decrypt(encrypted, parameters);
+                                    Logger.Info($"Decrypted: {decrypted}");
+
+                                    bool verify = encryptDecrypt.Verify(plaintext, encrypted, parameters);
+                                    if (verify) Logger.Info("Encryption verified successfully.");
+                                    else Logger.Error("Encryption verification failed.");
+                                }
                             }
                         }
                         catch (Exception ex)
