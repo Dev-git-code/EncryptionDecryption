@@ -477,3 +477,414 @@ Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime bi
 2024-08-07 17:10:08,445 [1] INFO EncryptionDecryption.Program.DecryptString[152] - String decryption successful.
 2024-08-07 17:10:08,446 [1] INFO EncryptionDecryption.Program.Main[142] - Decrypted: password
 2024-08-07 17:10:23,841 [1] INFO EncryptionDecryption.Program.Main[52] - User chose to exit.
+2024-08-07 17:23:55,485 [1] INFO EncryptionDecryption.Program.Main[115] - SRMS encryption selected.
+2024-08-07 17:23:57,089 [1] INFO EncryptionDecryption.Program.Main[127] - Encrypting text: password
+2024-08-07 17:23:57,186 [1] DEBUG EncryptionDecryption.Program.EncryptString[84] - EncryptString called with stringToBeEncrypted: password, filePath: C:\Users\kanch\source\repos\EncyptionDecryption\appsettings.json
+2024-08-07 17:23:57,187 [1] DEBUG EncryptionDecryption.Program.EncryptString[93] - Building configuration from JSON file.
+2024-08-07 17:23:57,245 [1] DEBUG EncryptionDecryption.Program.EncryptString[95] - Configuration built successfully.
+2024-08-07 17:23:57,246 [1] DEBUG EncryptionDecryption.Program.EncryptString[97] - Fetching configuration section 'srmconfig'.
+2024-08-07 17:23:57,248 [1] DEBUG EncryptionDecryption.Program.EncryptString[100] - Creating EncryptionSettings.
+2024-08-07 17:23:57,250 [1] DEBUG EncryptionDecryption.Program.EncryptString[107] - EncryptionSettings created: Algorithm=AES, Key=1234567890123456, IV=1234567890123456
+2024-08-07 17:23:57,251 [1] DEBUG EncryptionDecryption.Program.EncryptString[114] - Encrypting string.
+2024-08-07 17:23:57,261 [1] INFO EncryptionDecryption.Program.EncryptString[116] - String encryption successful.
+2024-08-07 17:23:57,263 [1] INFO EncryptionDecryption.Program.Main[140] - Encrypted: DJqeCF2q+gwuHPxNw6+apA==
+2024-08-07 17:23:57,265 [1] DEBUG EncryptionDecryption.Program.DecryptString[129] - DecryptString called with stringToBeDecrypted: DJqeCF2q+gwuHPxNw6+apA==, filePath: C:\Users\kanch\source\repos\EncyptionDecryption\appsettings.json
+2024-08-07 17:23:57,266 [1] DEBUG EncryptionDecryption.Program.DecryptString[138] - Building configuration from JSON file.
+2024-08-07 17:23:57,267 [1] DEBUG EncryptionDecryption.Program.DecryptString[140] - Configuration built successfully.
+2024-08-07 17:23:57,268 [1] DEBUG EncryptionDecryption.Program.DecryptString[142] - Fetching configuration section 'srmconfig'.
+2024-08-07 17:23:57,269 [1] DEBUG EncryptionDecryption.Program.DecryptString[145] - Creating EncryptionSettings.
+2024-08-07 17:23:57,270 [1] DEBUG EncryptionDecryption.Program.DecryptString[152] - EncryptionSettings created: Algorithm=AES, Key=1234567890123456, IV=1234567890123456
+2024-08-07 17:23:57,271 [1] DEBUG EncryptionDecryption.Program.DecryptString[160] - Decrypting string.
+2024-08-07 17:23:57,274 [1] INFO EncryptionDecryption.Program.DecryptString[162] - String decryption successful.
+2024-08-07 17:23:57,275 [1] INFO EncryptionDecryption.Program.Main[143] - Decrypted: password
+2024-08-07 17:24:00,329 [1] INFO EncryptionDecryption.Program.Main[53] - User chose to exit.
+2024-08-07 17:27:24,850 [1] INFO EncryptionDecryption.Program.Main[56] - User chose to exit.
+2024-08-07 17:28:56,718 [1] INFO EncryptionDecryption.Program.Main[56] - User chose to exit.
+2024-08-07 17:31:43,184 [1] INFO EncryptionDecryption.Program.Main[117] - SRMS encryption selected.
+2024-08-07 17:31:46,003 [1] INFO EncryptionDecryption.Program.Main[129] - Encrypting text: password
+2024-08-07 17:31:46,104 [1] DEBUG EncryptionDecryption.Program.EncryptString[84] - EncryptString called with stringToBeEncrypted: password, filePath: C:\Users\kanch\source\repos\EncyptionDecryption\appsettings.json
+2024-08-07 17:31:46,105 [1] DEBUG EncryptionDecryption.Program.EncryptString[93] - Building configuration from JSON file.
+2024-08-07 17:31:46,160 [1] DEBUG EncryptionDecryption.Program.EncryptString[95] - Configuration built successfully.
+2024-08-07 17:31:46,161 [1] DEBUG EncryptionDecryption.Program.EncryptString[97] - Fetching configuration section 'srmconfig'.
+2024-08-07 17:31:46,162 [1] DEBUG EncryptionDecryption.Program.EncryptString[100] - Creating EncryptionSettings.
+2024-08-07 17:31:46,163 [1] DEBUG EncryptionDecryption.Program.EncryptString[107] - EncryptionSettings created: Algorithm=AES, Key=1234567890123456, IV=1234567890123456
+2024-08-07 17:31:46,165 [1] DEBUG EncryptionDecryption.Program.EncryptString[114] - Encrypting string.
+2024-08-07 17:31:46,178 [1] INFO EncryptionDecryption.Program.EncryptString[116] - String encryption successful.
+2024-08-07 17:31:46,180 [1] INFO EncryptionDecryption.Program.Main[142] - Encrypted: DJqeCF2q+gwuHPxNw6+apA==
+2024-08-07 17:31:46,181 [1] DEBUG EncryptionDecryption.Program.DecryptString[129] - DecryptString called with stringToBeDecrypted: DJqeCF2q+gwuHPxNw6+apA==, filePath: C:\Users\kanch\source\repos\EncyptionDecryption\appsettings.json
+2024-08-07 17:31:46,182 [1] DEBUG EncryptionDecryption.Program.DecryptString[138] - Building configuration from JSON file.
+2024-08-07 17:31:46,184 [1] DEBUG EncryptionDecryption.Program.DecryptString[140] - Configuration built successfully.
+2024-08-07 17:31:46,185 [1] DEBUG EncryptionDecryption.Program.DecryptString[142] - Fetching configuration section 'srmconfig'.
+2024-08-07 17:31:46,186 [1] DEBUG EncryptionDecryption.Program.DecryptString[145] - Creating EncryptionSettings.
+2024-08-07 17:31:46,186 [1] DEBUG EncryptionDecryption.Program.DecryptString[152] - EncryptionSettings created: Algorithm=AES, Key=1234567890123456, IV=1234567890123456
+2024-08-07 17:31:46,187 [1] DEBUG EncryptionDecryption.Program.DecryptString[160] - Decrypting string.
+2024-08-07 17:31:46,189 [1] INFO EncryptionDecryption.Program.DecryptString[162] - String decryption successful.
+2024-08-07 17:31:46,190 [1] INFO EncryptionDecryption.Program.Main[145] - Decrypted: password
+2024-08-07 17:31:49,211 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-07 18:06:42,267 [1] INFO EncryptionDecryption.Program.Main[117] - SRMS encryption selected.
+2024-08-07 18:06:45,127 [1] INFO EncryptionDecryption.Program.Main[129] - Encrypting text: password
+2024-08-07 18:06:45,268 [1] DEBUG EncryptionDecryption.Program.EncryptString[84] - EncryptString called with stringToBeEncrypted: password, filePath: C:\Users\kanch\source\repos\EncyptionDecryption\appsettings.json
+2024-08-07 18:06:45,269 [1] DEBUG EncryptionDecryption.Program.EncryptString[93] - Building configuration from JSON file.
+2024-08-07 18:06:45,351 [1] DEBUG EncryptionDecryption.Program.EncryptString[95] - Configuration built successfully.
+2024-08-07 18:06:45,352 [1] DEBUG EncryptionDecryption.Program.EncryptString[97] - Fetching configuration section 'srmconfig'.
+2024-08-07 18:06:45,352 [1] DEBUG EncryptionDecryption.Program.EncryptString[100] - Creating EncryptionSettings.
+2024-08-07 18:06:45,354 [1] DEBUG EncryptionDecryption.Program.EncryptString[107] - EncryptionSettings created: Algorithm=AES, Key=1234567890123456, IV=1234567890123456
+2024-08-07 18:06:45,355 [1] DEBUG EncryptionDecryption.Program.EncryptString[114] - Encrypting string.
+2024-08-07 18:06:45,375 [1] INFO EncryptionDecryption.Program.EncryptString[116] - String encryption successful.
+2024-08-07 18:06:45,376 [1] INFO EncryptionDecryption.Program.Main[142] - Encrypted: DJqeCF2q+gwuHPxNw6+apA==
+2024-08-07 18:06:45,378 [1] DEBUG EncryptionDecryption.Program.DecryptString[129] - DecryptString called with stringToBeDecrypted: DJqeCF2q+gwuHPxNw6+apA==, filePath: C:\Users\kanch\source\repos\EncyptionDecryption\appsettings.json
+2024-08-07 18:06:45,378 [1] DEBUG EncryptionDecryption.Program.DecryptString[138] - Building configuration from JSON file.
+2024-08-07 18:06:45,379 [1] DEBUG EncryptionDecryption.Program.DecryptString[140] - Configuration built successfully.
+2024-08-07 18:06:45,380 [1] DEBUG EncryptionDecryption.Program.DecryptString[142] - Fetching configuration section 'srmconfig'.
+2024-08-07 18:06:45,380 [1] DEBUG EncryptionDecryption.Program.DecryptString[145] - Creating EncryptionSettings.
+2024-08-07 18:06:45,381 [1] DEBUG EncryptionDecryption.Program.DecryptString[152] - EncryptionSettings created: Algorithm=AES, Key=1234567890123456, IV=1234567890123456
+2024-08-07 18:06:45,381 [1] DEBUG EncryptionDecryption.Program.DecryptString[160] - Decrypting string.
+2024-08-07 18:06:45,384 [1] INFO EncryptionDecryption.Program.DecryptString[162] - String decryption successful.
+2024-08-07 18:06:45,385 [1] INFO EncryptionDecryption.Program.Main[145] - Decrypted: password
+2024-08-07 18:06:56,438 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 15:42:19,998 [1] INFO EncryptionDecryption.Program.Main[116] - SRMS encryption selected.
+2024-08-08 15:42:21,938 [1] INFO EncryptionDecryption.Program.Main[128] - Encrypting text: password
+2024-08-08 15:42:22,131 [1] DEBUG EncryptionDecryption.Program.EncryptString[84] - EncryptString called with stringToBeEncrypted: password, filePath: C:\Users\kanch\source\repos\EncyptionDecryption\appsettings.json
+2024-08-08 15:42:22,132 [1] DEBUG EncryptionDecryption.Program.EncryptString[93] - Building configuration from JSON file.
+2024-08-08 15:42:22,313 [1] DEBUG EncryptionDecryption.Program.EncryptString[95] - Configuration built successfully.
+2024-08-08 15:42:22,313 [1] DEBUG EncryptionDecryption.Program.EncryptString[97] - Fetching configuration section 'srmconfig'.
+2024-08-08 15:42:22,314 [1] DEBUG EncryptionDecryption.Program.EncryptString[100] - Creating EncryptionSettings.
+2024-08-08 15:42:22,315 [1] DEBUG EncryptionDecryption.Program.EncryptString[107] - EncryptionSettings created: Algorithm=AES, Key=1234567890123456, IV=1234567890123456
+2024-08-08 15:42:22,316 [1] DEBUG EncryptionDecryption.Program.EncryptString[114] - Encrypting string.
+2024-08-08 15:42:22,365 [1] INFO EncryptionDecryption.Program.EncryptString[116] - String encryption successful.
+2024-08-08 15:42:22,367 [1] INFO EncryptionDecryption.Program.Main[141] - Encrypted: DJqeCF2q+gwuHPxNw6+apA==
+2024-08-08 15:42:22,368 [1] DEBUG EncryptionDecryption.Program.DecryptString[129] - DecryptString called with stringToBeDecrypted: DJqeCF2q+gwuHPxNw6+apA==, filePath: C:\Users\kanch\source\repos\EncyptionDecryption\appsettings.json
+2024-08-08 15:42:22,368 [1] DEBUG EncryptionDecryption.Program.DecryptString[138] - Building configuration from JSON file.
+2024-08-08 15:42:22,369 [1] DEBUG EncryptionDecryption.Program.DecryptString[140] - Configuration built successfully.
+2024-08-08 15:42:22,369 [1] DEBUG EncryptionDecryption.Program.DecryptString[142] - Fetching configuration section 'srmconfig'.
+2024-08-08 15:42:22,369 [1] DEBUG EncryptionDecryption.Program.DecryptString[145] - Creating EncryptionSettings.
+2024-08-08 15:42:22,370 [1] DEBUG EncryptionDecryption.Program.DecryptString[152] - EncryptionSettings created: Algorithm=AES, Key=1234567890123456, IV=1234567890123456
+2024-08-08 15:42:22,370 [1] DEBUG EncryptionDecryption.Program.DecryptString[160] - Decrypting string.
+2024-08-08 15:42:22,372 [1] INFO EncryptionDecryption.Program.DecryptString[162] - String decryption successful.
+2024-08-08 15:42:22,373 [1] INFO EncryptionDecryption.Program.Main[144] - Decrypted: password
+2024-08-08 15:42:24,668 [1] INFO EncryptionDecryption.Program.Main[54] - User chose to exit.
+2024-08-08 15:48:28,275 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 15:48:52,831 [1] INFO EncryptionDecryption.Program.Main[134] - Encrypting text: password
+2024-08-08 15:48:52,966 [1] ERROR EncryptionDecryption.Program.Main[146] - Error occurred during encryption/decryption: The type arguments for method 'EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Encrypt<T>(string, string)' cannot be inferred from the usage. Try specifying the type arguments explicitly.
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: The type arguments for method 'EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Encrypt<T>(string, string)' cannot be inferred from the usage. Try specifying the type arguments explicitly.
+   at CallSite.Target(Closure , CallSite , Object , String , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 146
+2024-08-08 15:49:04,696 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 15:50:02,648 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: password
+2024-08-08 15:50:02,761 [1] ERROR EncryptionDecryption.Program.Main[139] - Error occurred during encryption/decryption: Member 'EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Encrypt(string)' cannot be accessed with an instance reference; qualify it with a type name instead
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Member 'EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Encrypt(string)' cannot be accessed with an instance reference; qualify it with a type name instead
+   at CallSite.Target(Closure , CallSite , Object , String )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute2[T0,T1,TRet](CallSite site, T0 arg0, T1 arg1)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 139
+2024-08-08 15:50:33,642 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 15:53:57,920 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: password
+2024-08-08 15:53:58,094 [1] ERROR EncryptionDecryption.Program.Main[147] - Error occurred during encryption/decryption: File not exists: C:\Users\kanch\source\repos\EncyptionDecryption\bin\Debug\net6.0\bin\PrivateKey.xml
+System.IO.FileNotFoundException: File not exists: C:\Users\kanch\source\repos\EncyptionDecryption\bin\Debug\net6.0\bin\PrivateKey.xml
+   at EncyptionDecryption.Algorithms.RSAExtensions.RSAPrivateEncryption.LoadPrivateFromXml(RSACryptoServiceProvider rsa, String privatePath) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\RSAPrivateEncryption.cs:line 97
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Encrypt(String dataToEncrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 41
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Encrypt(String plaintext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 21
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 147
+2024-08-08 15:54:34,237 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 15:59:55,404 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: password
+2024-08-08 15:59:55,531 [1] ERROR EncryptionDecryption.Program.Main[147] - Error occurred during encryption/decryption: File not exists: C:\Users\kanch\source\repos\EncyptionDecryption\bin\Debug\net6.0\bin\PrivateKey.xml
+System.IO.FileNotFoundException: File not exists: C:\Users\kanch\source\repos\EncyptionDecryption\bin\Debug\net6.0\bin\PrivateKey.xml
+   at EncyptionDecryption.Algorithms.RSAExtensions.RSAPrivateEncryption.LoadPrivateFromXml(RSACryptoServiceProvider rsa, String privatePath) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\RSAPrivateEncryption.cs:line 95
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Encrypt(String dataToEncrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 41
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Encrypt(String plaintext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 21
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 147
+2024-08-08 16:03:59,526 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 16:27:26,993 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: passdlkfj
+2024-08-08 16:27:27,247 [1] INFO EncryptionDecryption.Program.Main[148] - Encrypted: KwBpCV+Ad9FQ0DIRQHUo3KwAHmlSD4BgUYaV3XXpFDwp8k/PnldO9G9xhPoW5NcVPy/ZFzt0M+MYgXpTy8xz+XbftndA6t57BJgblydUCSddjAXTawZ+MwIKtPJXikixS/EUaaPQViTaPDa87N01blbv5wf84+hzb1v9DN2pMWXUjhbUFZO/c6UQ3flSiqaJoyCNQOwujC+AFSgKKsnmudXDTy6qChdTr5DhddJvOLnjLQO83jJc4rF/oniaCab2ZE0QGr5am4RzRcwRV2HasQ==
+2024-08-08 16:27:27,313 [1] ERROR EncryptionDecryption.Program.Main[150] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 111
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String ciphertext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 26
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 150
+2024-08-08 16:28:17,432 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: password
+2024-08-08 16:28:17,440 [1] INFO EncryptionDecryption.Program.Main[148] - Encrypted: X3McJJZOzhtJW7pKTeMFQxhznKPX7PwXcYKreZC1jfo+EImuq0tiqM9Q2wwW39tYdqw+z5RMXesDJK9Ayqw8SIs33VAZp6m7IutMdoMjoPg+5DzZ+uDKHbdgPQECjMU8s3B7wRYvCtaeLyuLLWn69YZ0BhctpFbJdfEBfKgwEHUNF8UbkBlftT+NIB//53qTs3PCcF2GCtKzOf5X64kqyp95yI+iOqGRYi24ndTlVY63iaQXPOW85tT0826gPpICOJ10QQWOC0KOqhRsvYZwGg==
+2024-08-08 16:28:17,458 [1] ERROR EncryptionDecryption.Program.Main[150] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 111
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String ciphertext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 26
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 150
+2024-08-08 16:29:17,136 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 16:33:32,842 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: password
+2024-08-08 16:33:33,013 [1] INFO EncryptionDecryption.Program.Main[148] - Encrypted: vuKXtA50v9Olp8EZPiIxfouKIkFlpDxYYRMP2SzpEbRztfv+1qBNIqY+E5ZPRQ/LFDvAJjBAbtyljcf2U8uvwTZi9MLZ3LCJyIhC58rAqfKdUalH7ZVOC6EAJ0gVc2c135XeCgN0mxHPxqZr7BtJPPoh4sf8KICzAMorAwL8t6w8fMLHUsNFFF2Il3pp7rx0o6EYAKgitJNLBzlKyCYEEI4no+JEIOThT6K0RQP1i8cb4mkzyk0dm69/CVXq+6FfjCDsjif1Opgzi6tIynzrWw==
+2024-08-08 16:33:33,041 [1] ERROR EncryptionDecryption.Program.Main[150] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 111
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String ciphertext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 26
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 150
+2024-08-08 16:34:12,722 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 16:34:48,837 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: password is 
+2024-08-08 16:34:48,996 [1] INFO EncryptionDecryption.Program.Main[148] - Encrypted: SNchatLN6rx3J6O36nca7Pu/ozFwr0w5tTGqbhgLz6OKPK6tJjQydxmWFmlF8NtxrP1pcq9jj7QL+nk4sdlXbCgnz/uqLloZolMZc1S/xCTLVqWShW5Y+gNqadTzytY7laH2GkIlv5PXaZTGTHTm9FCf7ED0ncxWdRBBBPI0796Dr89xI63sq0pR/0dgLjrsCz67oLzR8azajTLwZaYzAMZC1mObIGNpJRQd+RyZDfJq1fJJEWtGkQGTpkzWRIsGww0Pb/Mk86ABMa+qVn7pgQ==
+2024-08-08 16:34:49,028 [1] ERROR EncryptionDecryption.Program.Main[150] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 111
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String ciphertext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 26
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 150
+2024-08-08 16:35:00,147 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: password
+2024-08-08 16:35:00,155 [1] INFO EncryptionDecryption.Program.Main[148] - Encrypted: KEJonmdBtqFwYfw59DKJoZHR7Xhw/hubMR0XVkqeW9ysdPFoyJBCxiU0p1FGC3X2c9w6/6u7iwbxPtKAWXnCgtAUohJvhsl7jQisZCU0lJwKl9kA3F4qhR5LixfaY3+IbHS7oqmIefMTCZ2OFNA78804k5AOnZPuDnV3gn4j8FLTkmidLZrpCI+AiZe20IhYDqR6zcXBRnWzSad/zNJzDC98liTDb219bJxaApx8lYZGrCRLBfZdm3SIt2fkD2+0dvGI/8tabn9xJ29ZLT8UyQ==
+2024-08-08 16:35:00,178 [1] ERROR EncryptionDecryption.Program.Main[150] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 111
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String ciphertext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 26
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 150
+2024-08-08 16:35:29,164 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 16:36:05,054 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: password
+2024-08-08 16:36:05,192 [1] INFO EncryptionDecryption.Program.Main[148] - Encrypted: vcTNHLwyXGylFvFp6rIfur/cMTyBeNY9MgJsrsYkhq+sr9HUX9opkPIdQaItBp3CY3jVpJpL6X+pdRzvIcHN+mnq75oasA1T2MdXmTfAJ9vqSIAK0QOFOjA3Px4jdyA2k23YPbQp8WGo4ORCCtx8dRbzn7fQr12JJG9iaagSRJacZr8pBsnhOJv2dXVhvpPzJDa95A8RW/yJd17HGJeJDHsYM1MEPlb6RHrbHBpD3OM/L2l2RVDxr2eXANvQc+hONDF6vTi9ecpXvpz2koVryw==
+2024-08-08 16:36:05,219 [1] ERROR EncryptionDecryption.Program.Main[150] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 111
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String ciphertext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 26
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 150
+2024-08-08 16:36:11,191 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 16:38:27,742 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: password
+2024-08-08 16:38:27,893 [1] INFO EncryptionDecryption.Program.Main[148] - Encrypted: F4aACzWaUbvrUvnzCHQHw87Rlm4ttTPFlcxHaVyO71/pG4ImJm/nGI8c53XgNxDc/CJQ+FrcvW0Lwy6hLxo77kCXI5EXqgBDfV6+d15Wy9BKG5H+59y2XKe4AqVFBgaQtAtUt1yYw+HGdE/BapFqKAFgD9quK6Jc6/ZJlPOXPZrGPf3VUJ015AMAp6nvzRyAqLRj4rfZR0/x2gndAL1tFwOjfOcsnRtZi9p4nWPQd2pq9JFyZgud5zewfY7pmY88wk1Bl0hTWoFHOXRQ145n8A==
+2024-08-08 16:38:27,922 [1] ERROR EncryptionDecryption.Program.Main[150] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 111
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String ciphertext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 26
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 150
+2024-08-08 16:38:36,448 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 16:40:07,585 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: password
+2024-08-08 16:40:07,743 [1] INFO EncryptionDecryption.Program.Main[148] - Encrypted: biGY56G6FIyrD/n4RXT5s2hu+BpeHchPjGhRLibA+3Yme7/RASr+NrnMYVkfNX4GSi5CYYEx60z3VfSKjgWL3tzVBsPrxjBEuMXnljnT4tLqa6wSqyQviXOd4Mto1dmVMtp1EV5iqcN+0UXfStv/5ricoWz8+4Q1KpNz1s4tVJJ3auIk806RtcSMS+faWPzfU7NzAoiJdIRwu3yrt5y7SL+TGQnsDwZjeaJzVLXbXfGiFw0O+2WSzNxZV/8ACOB6EjKl9/3GngN6hNGJFBiUdA==
+2024-08-08 16:40:07,772 [1] ERROR EncryptionDecryption.Program.Main[150] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 111
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String ciphertext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 26
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 150
+2024-08-08 16:40:16,338 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 16:41:26,914 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: password1234lksjdflkasdjjoiasjdfoiasdjflkasdjflaskdjfoasjfdlasdjflksdjfsnvkajjdfdsjaf
+2024-08-08 16:41:27,070 [1] INFO EncryptionDecryption.Program.Main[148] - Encrypted: 1oE+DqII+opHeCtJOxBqxdcK9jeUk6rS3LcrB8Q8chKxVtL+9bRSoX4URTwNzPu1PiN1jj65hYhbppCPzfBjX6zkWjTpqwoJ+UEBM+qsUHojlSO5vGvMXZD9RQo9KooTGWDipZYM0q0H+CXh4Gze5DEd8jI/ZYDPq1XB/YL7Dus2lqZ3J4o5CBl0G19iUUvX+rxwsJcpU+rAOIEniajgioAIeTYekBwPQfX5Rglp5zDJLE5/hz+6cDw2zhMxD97CQaAL3ZM716DndzPaXFI9VJHhDJ3qu7ZuL709FuPocZJpBeTErHeqAcviGWudyWJiSidJ2/r20WlmyHa5R7b3kzBZGCyuqJhWIhc1pFWuYRGXBTQqSj6YGOTayj2ByOVea9dSSEChmZOJVNgplusyIA==
+2024-08-08 16:41:27,097 [1] ERROR EncryptionDecryption.Program.Main[150] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 111
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String ciphertext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 26
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 150
+2024-08-08 16:44:29,712 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: password
+2024-08-08 16:44:29,863 [1] INFO EncryptionDecryption.Program.Main[148] - Encrypted: UYOQjO2QdJFbY/bcOZNzzm+CQTVtRuctwzL7fk7che5ImQHMDcYBfP0AOIxB4yjWh/qvZt9111FKK0xcs4flwXy6UVp5MoObV4olWGRPiUjLJLoZDDLda4+wEfE7xvcxr9A5XvJT9EQDwiSRPHDqtYz7a4Ve6md35YVrfmgQokdrKUbeMnH2ZQhToRsImpQu+wVh2HKg7sQyQChgc3acD2QOApI+ILPuQnBZy3VH414tXfTbSRM+kF49U6Mei7LK34HVY45ci3/PyOh7tk+FbQ==
+2024-08-08 16:44:29,892 [1] ERROR EncryptionDecryption.Program.Main[153] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 111
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String ciphertext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 26
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 153
+2024-08-08 16:44:37,291 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 16:47:55,446 [1] INFO EncryptionDecryption.Program.Main[135] - Encrypting text: <?xml version="1.0" encoding="utf-16"?>
+2024-08-08 16:47:55,588 [1] INFO EncryptionDecryption.Program.Main[148] - Encrypted: dfCE+0ucV1dBE4jnyd/d8MeP429GcDPT2rqsgais5qILmYUagKqx3xYyXfOhEKh3JAl/dlJyNxK0nom+3E0ag8wNeuwGt6AY7nDfzydijYuBHbXEGrOE4wAS6gBsUk7Q8DJtBDNScK0Ot8RQDAjZJpXTTupYcQNHUGGXlWI9EeTZXgZQf6naiLwE0yZNifBNvDoXS+OIIesNjcYEub3I+KDuSrOrtGKSC1lq9c9WLH8NeX+dEZ/QdJq1IlN13jlafLDUgNu2U8Fp4DVl9oieUu0V/p0oCScpIPMXDR/2pbSmjKSGGu31fkkMaHhoPtDT
+2024-08-08 16:47:55,612 [1] ERROR EncryptionDecryption.Program.Main[153] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 111
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String ciphertext, String parameters) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 26
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute3[T0,T1,T2,TRet](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 153
+2024-08-08 16:47:55,616 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,617 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,618 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,619 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,619 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,620 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,621 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,621 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,622 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,622 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,623 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,623 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,624 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,624 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,625 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,625 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,626 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:47:55,626 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:05,263 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:06,578 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 16:48:39,007 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,046 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,047 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,047 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,048 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,049 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,050 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,050 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,051 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,051 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,052 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,052 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,052 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,053 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,053 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,054 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,054 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,055 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:39,056 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:40,289 [1] ERROR EncryptionDecryption.Program.Main[167] - Invalid choice.
+2024-08-08 16:48:41,740 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 16:58:25,754 [1] INFO EncryptionDecryption.Program.Main[125] - Encrypted: 692dbDioeY4ArXYXIA7vUhGYCd9mO0y4X1CnpzzIcv7BoJhFcJbUQmGNfkPP0iKEKEuGmeHstCE1XjBCzCcmoHCEfq3q2QvTbWCmH8FP9aKUwj8GynA7icTXSIa21IdHetg9AFUraSd8PNHvGULGdDzkERgOkgskkJMogWeUxDq+TfyJt56+71EKai9c1tUaMnQ57U7kdhH4qauPUnen4PeO6Rhg1P8LbOEweCArm0fVf9GCuB8h4vqOAGQ1ogCBWwbSZEXmqrT029EfhsLuMg==
+2024-08-08 16:58:25,825 [1] ERROR EncryptionDecryption.Program.Main[130] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 103
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 130
+2024-08-08 16:58:39,955 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 16:59:38,980 [1] INFO EncryptionDecryption.Program.Main[125] - Encrypted: 2tjZkX6AF/GiFDAQGn13PO7H5kfNHNFzEgv1BxAu7LQzlw5k4gvMGj07hrkBPwuNs1Q5zlt/T+1dLNkr1wSMB77eQ4dLJ2T6njDPwbBkK57Wl8IJnUHPNY/+vzk3N83f9y4OYsDTkHdB7y2w1RakTX5qJi2PW2zjZ9VvrZQsFlN6+bEeh+dIaOz0GipW7Pox4NvGumc3xyuFANn+OGPmgfImg4aV1m2njWhjQUcbf9VC/1hbBnd0nzqbNrK2QesqKpD3yUz1XE8/ZY850qlt1g==
+2024-08-08 16:59:39,050 [1] ERROR EncryptionDecryption.Program.Main[130] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 103
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 130
+2024-08-08 16:59:44,681 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 17:03:42,491 [1] INFO EncryptionDecryption.Program.Main[125] - Encrypted: 1iX5rbNA26MPMXXPebdejq6JIkCRAOIR8y1B40g42t8vgn/NHrWtiEvi64fGk0J0+Zij7VXTgg7YgO8RQmBRf0QoC3wXcIwKHv2p0e+32TQgjva03dVD5R0wzX6DY35h5Yw2BTLNPHMDY9bNF+g5ILGd65Iv9KseXJ1FbwEVgc4bfFyrWlxbLnmJlNrwCAOOcIX7I88WCIJB89Eg7ykavCCfcIXk/qA2gkKB7Z4Wg75LQVe2yu2CBpG1f4WNPWKdwi/j48XcWSyjisWNkX/xW2tmuV4jhbGtADFSyTiPn3Y=
+2024-08-08 17:03:42,560 [1] ERROR EncryptionDecryption.Program.Main[128] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 103
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 128
+2024-08-08 17:03:51,829 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 17:13:38,095 [1] INFO EncryptionDecryption.Program.Main[125] - Encrypted: 0EqSWBQB7ENmtB3tNiwmWZQ7mi3gF9oSD3wD1y+nCI9o3U8+DJ6cusn3cec4ajcIpq2kJzZsgM3QtRj6eB7ESJqyCZkDARjUATsu0XEX18BszHNsQ2Veyz6JAsMLvxQzbXGljqTRwo3A9VfAs3vlJyVXWIfwwiaPGdkoDJg3FZdsUFsZ6oRsXrybtxK40Fk6/FDJ0XZl2S61IbikRDAhMP2hJF4QG/nzwY57Ay4uh9McgIpV8IYg8ws47Cw10MWt5oJG/cQhD8XReFD250m4srfOouxSBGHEAMg61mU7j0E=
+2024-08-08 17:13:38,167 [1] ERROR EncryptionDecryption.Program.Main[128] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 103
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 128
+2024-08-08 17:13:45,029 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 17:23:51,056 [1] INFO EncryptionDecryption.Program.Main[125] - Encrypted: UBG8UgmohxTFC9u4/cKzdTQogtgkZ+6nqMFBlQPs6NYfh464WdDmlv6B3GarFMkj5A3+bnyXVwrZvXhtLJ5KU1D/4fBlM6N5q610Iz6tdDAfICWOopvsQNVbHgEngK/ONJI2jDUBWDs7QSqWdQDS9tkEW+7elvqXBeCqLBIEE/2Efqd+TOIX9APnE8g0BxZf4jmoLsbs9W1tb7oQmQbXbFrQe17euOY3Zz5IFlzgZVvu6T62hTec1+mlqnpDh0J0U2m81tCD+UUs5zeLLGs9wA==
+2024-08-08 17:23:51,123 [1] ERROR EncryptionDecryption.Program.Main[128] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 103
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 128
+2024-08-08 17:24:13,281 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 17:26:24,114 [1] INFO EncryptionDecryption.Program.Main[125] - Encrypted: hEhS8433NegQWlwpZnGkFwkvKCWVO0yBY2NilsChUBJXFRTdlajhmwUt4Ir038fn0aAenQ6sx8mbADEHnrDSShLRPe+lMrDe7JunmLblYKczJs6ITpLzDnLgTCmvAOeo3Rf9a1X6+xnsB+yAwM7TkA0ru7AktzrwFsFOyssjymAJ16A747j3vnObc4cJ+HBv8IGvWao/6hwy6T+MfXaaB0mlcJde9p2GmDLK3vjOasOmCEvD16evfPQP6pDXxD6y6q1Zn+octf3qSTjverTzMA==
+2024-08-08 17:26:24,180 [1] ERROR EncryptionDecryption.Program.Main[128] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at EncyptionDecryption.Algorithms.RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\RSAExtensions\AESEncryption.cs:line 103
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 128
+2024-08-08 17:26:32,536 [1] INFO EncryptionDecryption.Program.Main[55] - User chose to exit.
+2024-08-08 17:36:53,252 [1] ERROR EncryptionDecryption.Program.Main[123] - Error occurred during encryption/decryption: File not exists: C:\Users\kanch\source\repos\EncyptionDecryption\bin\Debug\net6.0\PublicKey.xml
+System.IO.FileNotFoundException: File not exists: C:\Users\kanch\source\repos\EncyptionDecryption\bin\Debug\net6.0\PublicKey.xml
+   at RSAExtensions.RSAPrivateEncryption.LoadPublicFromXml(RSACryptoServiceProvider rsa, String publicPath) in D:\AccopsLab\LicenseServer\RSAExtensions\RSAPrivateEncryption.cs:line 67
+   at RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in D:\AccopsLab\LicenseServer\RSAExtensions\AESEncryption.cs:line 102
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 123
+2024-08-08 17:37:15,275 [1] INFO EncryptionDecryption.Program.Main[54] - User chose to exit.
+2024-08-08 17:37:56,732 [1] ERROR EncryptionDecryption.Program.Main[123] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in D:\AccopsLab\LicenseServer\RSAExtensions\AESEncryption.cs:line 103
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 123
+2024-08-08 17:38:07,971 [1] INFO EncryptionDecryption.Program.Main[54] - User chose to exit.
+2024-08-08 17:40:18,818 [1] ERROR EncryptionDecryption.Program.Main[123] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in D:\AccopsLab\LicenseServer\RSAExtensions\AESEncryption.cs:line 103
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 123
+2024-08-08 17:40:22,517 [1] INFO EncryptionDecryption.Program.Main[54] - User chose to exit.
+2024-08-08 17:43:20,585 [1] ERROR EncryptionDecryption.Program.Main[123] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in D:\AccopsLab\LicenseServer\RSAExtensions\AESEncryption.cs:line 103
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 123
+2024-08-08 17:43:29,016 [1] INFO EncryptionDecryption.Program.Main[54] - User chose to exit.
+2024-08-08 17:44:23,411 [1] ERROR EncryptionDecryption.Program.Main[133] - Error occurred during encryption/decryption: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at RSAExtensions.LicenseEncryption.Decrypt(String dataToDecrypt) in D:\AccopsLab\LicenseServer\RSAExtensions\AESEncryption.cs:line 103
+   at EncryptionDecryption.Program.Main(String[] args) in C:\Users\kanch\source\repos\EncyptionDecryption\Program.cs:line 133
+2024-08-08 17:44:32,584 [1] INFO EncryptionDecryption.Program.Main[54] - User chose to exit.
+2024-08-09 11:11:24,867 [1] INFO EncryptionDecryption.Program.Main[118] - SRMS encryption selected.
+2024-08-09 11:11:26,879 [1] INFO EncryptionDecryption.Program.Main[133] - Encrypting text: password
+2024-08-09 11:11:27,113 [1] DEBUG EncryptionDecryption.Program.EncryptString[84] - EncryptString called with stringToBeEncrypted: password, filePath: C:\Users\kanch\source\repos\EncyptionDecryption\appsettings.json
+2024-08-09 11:11:27,116 [1] DEBUG EncryptionDecryption.Program.EncryptString[93] - Building configuration from JSON file.
+2024-08-09 11:11:27,289 [1] DEBUG EncryptionDecryption.Program.EncryptString[95] - Configuration built successfully.
+2024-08-09 11:11:27,290 [1] DEBUG EncryptionDecryption.Program.EncryptString[97] - Fetching configuration section 'srmconfig'.
+2024-08-09 11:11:27,291 [1] DEBUG EncryptionDecryption.Program.EncryptString[100] - Creating EncryptionSettings.
+2024-08-09 11:11:27,293 [1] DEBUG EncryptionDecryption.Program.EncryptString[107] - EncryptionSettings created: Algorithm=AES, Key=1234567890123456, IV=1234567890123456
+2024-08-09 11:11:27,294 [1] DEBUG EncryptionDecryption.Program.EncryptString[114] - Encrypting string.
+2024-08-09 11:11:27,341 [1] INFO EncryptionDecryption.Program.EncryptString[116] - String encryption successful.
+2024-08-09 11:11:27,343 [1] INFO EncryptionDecryption.Program.Main[146] - Encrypted: DJqeCF2q+gwuHPxNw6+apA==
+2024-08-09 11:11:27,345 [1] DEBUG EncryptionDecryption.Program.DecryptString[129] - DecryptString called with stringToBeDecrypted: ge9CXD8e6z94PAFC9IpqZW45jkGDtItAtC/dRda5GJ2UNCri6VWTOYPiii9g/Pk2c5VDnWuerim97byptFkMxNysd9VLkst0X55SIlw3AsB8fWxsBzzTqkKUGKRwQbbxb884O0EbTvmfDNMjO/ZTQi1izEOnmO+caCDW1nTw2htST9l7RYsrKPrJK8uQ2x9Z/ke9Xp+SoYokSz87d+mfUZcvXnzBX/N40Qvp6KBx7qd0lTJI3dNRIUeH+erw4u1uLgBTq3KbkIjv+bSGR+jmV/XRHe48agm0+/VYWiRR3kyTvwsQ3iJz/2upCM2OkbilEXDNJ7hy/2Tu5nTKEvKi5RDrfCQOKV+4WHEsoTC/3RJkKBaFC9BDZj329Ufvqw189l80PXR40S/Dg7pXK9F/NpQFPXIxt86E/T6aruQ6fH/M/3fqRRFgYPorzK03EytGZarYEQT+8vqbnkkRXM+gGbt4ykdD578IFiedgUUTuThQL9nrmGbt8C+18alkmxv5cbDckLnUwLGT+AR1UbITk5ebk++OuN6/A/WPwv61pggKq9wrAbGO06D5VFmTVjBbPjcvOMebvclRaeGuTPF2+a4nTXifBMZUWHi8T0tJUzQaTy5iMjkQxjdjfskZahh0lpK1MH9OVxXn6EaGQ+maTmMRYuGuIThHgZYiqVC8FPZ6g3Bw79BUWq9xC8C9a2T248BuWbjeWiXFW4brad3mgc7PgHncMMKsiW816+byy06hBF7h6wOqiO4krSm7MKMaWNxJyn6Uf8RFNkJpkLRMly8shRCljEG2DZ/FZfmcNlfe6fLrCJFl3Q3QRSEbui7jABd5DlA3pq+1Vb0dHkDEl0vLNp9jzmnWC3CMevoV1lvDDHIJim5NSq2yDWBqSztaRRSQtg3m3CNyTwNeONP3HKIzAjLGBAxiWuqd3tNPfDz09HOBO41YObojDJwO1b3KmhxuMKfiURaaf8P7kq6KPXbBAwUcYeXrhXzSsea5ZlaO3mVXowbYTAcXm/8KBTOcmsgxd0i0oUsAnP26ebUQBN7U6tJFjJYueqTkTHMJJtsfHeQWXEUnyThs7NjUrzpZKqHK7+9dzUx9Se/Q5CSgWzVfJOhXq53PjsPr90qYsY1GB6tazeHPfv9fAMaMMfZ14xongD23B0pDWcx8fCmkezT/Nop7MPxqFnfvPZjQ0QKNmG5sM1ChgWsTdAvFyv8XCj98ienRUnWRilR7EvF4egjkOkeKDvfz83YX83mazR0J3xy+cPR69Q4nXX0CeGyGt4rEPzsCbkj3El7R+xICJPeWUPu5rvdDJL8c6C2c+6bqjrct8FHK7iZABcMQzBfBEikHAPCEHTJVtzqhl1mXEiRDlmAqHWbRoROvxt5eq9AB7Cg46sEzwOZMh5nZZ/M9BlNA8Sn1N2tUI9VdWXbAekdkQqsFc+B8MfjQU8InBCXqP58bLo7WSKmG22yKfXLVQFQ2QkFDa067iSjg2KB7esRGyaVFxdCo78L/Rt2Vqa4uJqYaPo3egEHrFXGODCYzCRc4lajcmIOTWOsnVAO+968/T0tsdsnSIcUWRlOIDhHp8MKUqA5HlRnSZnd/2/u4SUOYas6VNiOT1nhSGh4X1D6S1feKsXglm9pLe7pqX4JC811jq+ZfE0usuAqxFkSd, filePath: C:\Users\kanch\source\repos\EncyptionDecryption\appsettings.json
+2024-08-09 11:11:27,346 [1] DEBUG EncryptionDecryption.Program.DecryptString[138] - Building configuration from JSON file.
+2024-08-09 11:11:27,347 [1] DEBUG EncryptionDecryption.Program.DecryptString[140] - Configuration built successfully.
+2024-08-09 11:11:27,347 [1] DEBUG EncryptionDecryption.Program.DecryptString[142] - Fetching configuration section 'srmconfig'.
+2024-08-09 11:11:27,347 [1] DEBUG EncryptionDecryption.Program.DecryptString[145] - Creating EncryptionSettings.
+2024-08-09 11:11:27,347 [1] DEBUG EncryptionDecryption.Program.DecryptString[152] - EncryptionSettings created: Algorithm=AES, Key=1234567890123456, IV=1234567890123456
+2024-08-09 11:11:27,348 [1] DEBUG EncryptionDecryption.Program.DecryptString[160] - Decrypting string.
+2024-08-09 11:11:27,385 [1] ERROR EncryptionDecryption.Program.DecryptString[161] - String decryption failed: Padding is invalid and cannot be removed.
+System.Security.Cryptography.CryptographicException: Padding is invalid and cannot be removed.
+   at Internal.Cryptography.UniversalCryptoDecryptor.GetPaddingLength(ReadOnlySpan`1 block)
+   at Internal.Cryptography.UniversalCryptoDecryptor.UncheckedTransformFinalBlock(ReadOnlySpan`1 inputBuffer, Span`1 outputBuffer)
+   at Internal.Cryptography.UniversalCryptoDecryptor.UncheckedTransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   at Internal.Cryptography.UniversalCryptoTransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   at System.Security.Cryptography.CryptoStream.ReadAsyncCore(Memory`1 buffer, CancellationToken cancellationToken, Boolean useAsync)
+   at System.Security.Cryptography.CryptoStream.Read(Byte[] buffer, Int32 offset, Int32 count)
+   at System.IO.StreamReader.ReadBuffer()
+   at System.IO.StreamReader.ReadToEnd()
+   at ConfigurationEncryptionProvider.CryptoProviders.Implementations.AESCryptoProvider.Decrypt(String secret) in C:\Users\kanch\source\repos\EncyptionDecryption\ConfigurationEncryptionProvider\CryptoProviders\Implementations\AESCryptoProvider.cs:line 36
+   at EncyptionDecryption.Algorithms.SRMSEncryption.DecryptString(String stringToBeDecrypted, String filePath) in C:\Users\kanch\source\repos\EncyptionDecryption\Algorithms\SRMSEncryption.cs:line 161
+2024-08-09 11:11:27,392 [1] INFO EncryptionDecryption.Program.Main[152] - Decrypted: 
+2024-08-09 11:11:41,572 [1] INFO EncryptionDecryption.Program.Main[56] - User chose to exit.
+2024-08-09 11:14:00,296 [1] INFO EncryptionDecryption.Program.Main[56] - User chose to exit.
+2024-08-09 11:24:36,039 [1] INFO EncryptionDecryption.Program.Main[118] - SRMS encryption selected.
+2024-08-09 11:24:37,933 [1] INFO EncryptionDecryption.Program.Main[133] - Encrypting text: password
+2024-08-09 11:24:38,026 [1] DEBUG EncryptionDecryption.Program.EncryptString[84] - EncryptString called with stringToBeEncrypted: password, filePath: C:\Users\kanch\source\repos\EncyptionDecryption\appsettings.json
+2024-08-09 11:24:38,028 [1] DEBUG EncryptionDecryption.Program.EncryptString[93] - Building configuration from JSON file.
+2024-08-09 11:24:38,079 [1] DEBUG EncryptionDecryption.Program.EncryptString[95] - Configuration built successfully.
+2024-08-09 11:24:38,080 [1] DEBUG EncryptionDecryption.Program.EncryptString[97] - Fetching configuration section 'srmconfig'.
+2024-08-09 11:24:38,081 [1] DEBUG EncryptionDecryption.Program.EncryptString[100] - Creating EncryptionSettings.
+2024-08-09 11:24:38,083 [1] DEBUG EncryptionDecryption.Program.EncryptString[107] - EncryptionSettings created: Algorithm=AES, Key=1234567890123456, IV=1234567890123456
+2024-08-09 11:24:38,084 [1] DEBUG EncryptionDecryption.Program.EncryptString[114] - Encrypting string.
+2024-08-09 11:24:38,095 [1] INFO EncryptionDecryption.Program.EncryptString[116] - String encryption successful.
+2024-08-09 11:24:38,097 [1] INFO EncryptionDecryption.Program.Main[146] - Encrypted: DJqeCF2q+gwuHPxNw6+apA==
+2024-08-09 11:24:38,099 [1] DEBUG EncryptionDecryption.Program.DecryptString[129] - DecryptString called with stringToBeDecrypted: DJqeCF2q+gwuHPxNw6+apA==, filePath: C:\Users\kanch\source\repos\EncyptionDecryption\appsettings.json
+2024-08-09 11:24:38,099 [1] DEBUG EncryptionDecryption.Program.DecryptString[138] - Building configuration from JSON file.
+2024-08-09 11:24:38,100 [1] DEBUG EncryptionDecryption.Program.DecryptString[140] - Configuration built successfully.
+2024-08-09 11:24:38,101 [1] DEBUG EncryptionDecryption.Program.DecryptString[142] - Fetching configuration section 'srmconfig'.
+2024-08-09 11:24:38,103 [1] DEBUG EncryptionDecryption.Program.DecryptString[145] - Creating EncryptionSettings.
+2024-08-09 11:24:38,104 [1] DEBUG EncryptionDecryption.Program.DecryptString[152] - EncryptionSettings created: Algorithm=AES, Key=1234567890123456, IV=1234567890123456
+2024-08-09 11:24:38,105 [1] DEBUG EncryptionDecryption.Program.DecryptString[160] - Decrypting string.
+2024-08-09 11:24:38,107 [1] INFO EncryptionDecryption.Program.DecryptString[162] - String decryption successful.
+2024-08-09 11:24:38,109 [1] INFO EncryptionDecryption.Program.Main[152] - Decrypted: password
+2024-08-09 11:24:40,531 [1] INFO EncryptionDecryption.Program.Main[56] - User chose to exit.

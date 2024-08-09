@@ -16,6 +16,16 @@ namespace EncyptionDecryption.Algorithms
         {
             _logger = logger;
         }
+
+        public string Encrypt(string plaintext, string parameters)
+        {
+            return EncryptString(plaintext, parameters);
+        }
+
+        public string Decrypt(string ciphertext, string parameters)
+        {
+            return DecryptString(ciphertext, parameters);
+        }
         private void FetchInputs(IConfiguration configuration, out EncryptionSettings encryptionSettings, out ConfigEncryptionProviderSection configEncryptionProviderSection)
         {
 
@@ -160,15 +170,6 @@ namespace EncyptionDecryption.Algorithms
             return string.Empty;
         }
 
-        public string Encrypt(string plaintext, string parameters)
-        {
-            return EncryptString(plaintext, parameters);
-        }
-
-        public string Decrypt(string ciphertext, string parameters)
-        {
-            return DecryptString(ciphertext, parameters);
-        }
 
         public bool Verify(string plaintext, string hash, string parameters)
         {

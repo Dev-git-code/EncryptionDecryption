@@ -8,15 +8,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="ConfigurationEncryptionProvider\.vs\ConfigurationEncryptionProvider\v17\DocumentLayout.json" />
-    <Content Include="ConfigurationEncryptionProvider\.vs\ProjectSettings.json" />
-    <Content Include="ConfigurationEncryptionProvider\.vs\VSWorkspaceState.json" />
+    <None Remove="PublicKey.xml" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="ConfigurationEncryptionProvider\.vs\ConfigurationEncryptionProvider\FileContentIndex\7ebe5a7e-10e9-4347-b92d-bdc7cd17f857.vsidx" />
-    <None Include="ConfigurationEncryptionProvider\.vs\ConfigurationEncryptionProvider\FileContentIndex\eaae5283-00c1-43c1-a560-fb78898dbd34.vsidx" />
-    <None Include="ConfigurationEncryptionProvider\.vs\slnx.sqlite" />
+    <Content Include="PublicKey.xml">
+		<RSAKeyValue>
+			<Modulus>0fZ6/IZi1eWGbCH7TQM/uRExby2sdEJi4+F8xMtD0sso8EDw/wTBdq/P7Y3UcaYUsbbObe1XWiti1mMSKn0H5ZyxB2vbqRbNO87OJYlbqh1Wm8t7NwsUundLhbYxgoyWBx2j8VLrouByvYd2dg8HW8XpDnwATIweZyYn5uteG/0=</Modulus>
+			<Exponent>AQAB</Exponent>
+			<P>7zXFNxRFvnMPYeWBowvWpIB4duLqB4hwOgc7e4k6w0dEvykY7UfzGoCutFxaAqbsmMwBqAIGOrjSSqeYXjCzEw==</P>
+			<Q>4LMu5urJoGS/H8XfCytkonbyVQZxmnefSTCf3iikcDAL4PPN31AW9E9Qdqt8TvIIAW3dLiQFLuGnmfr9+4HGrw==</Q>
+			<DP>HGleizQ1NHGmGhKQWzVEwTUhGb3J3isuaTYCsqGSAS+t0qam90fccAFovrNZXYdGAr/4UmQrKT5ae9N8HXPbUQ==</DP>
+			<DQ>05lpjaOEhDrbkPwxcr9GYYhJ5K/Qw3nq0m2r3vW/BLb6OLjfInC1bRRT3azXvzBFQbNIGm9pQiDWSDcIfpRTmQ==</DQ>
+			<InverseQ>eGIqBi0HIgwtWYTyswBS4rvSvOSbSCtyha8FcAR/U0glzMHQy60fChxv4VnraB78vScVkmKa9VZsbvh7niUgYA==</InverseQ>
+			<D>rkrgry3Tb+IX4z2WQcjXpgZKthMBHIVbV/X/v9FIXPy+4CnYpKnK+35YqcdZunn2pcutsv0ZzUVEx9j35INkAEsnLzcsUAKwXmpw2V9c8BFOdftBlhS1zm/Mv1gHsI6zeyPa7PazAKHNah6KylnTAxv1UiVodzdyson4Y/h4tLU=</D>
+		</RSAKeyValue>      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="ConfigurationEncryptionProvider\ConfigurationEncryptionProvider.csproj" />
   </ItemGroup>
 
@@ -27,11 +37,11 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Security.Permissions" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ConfigurationEncryptionProvider\bin\Debug\netstandard2.1\" />
-    <Folder Include="ConfigurationEncryptionProvider\bin\Release\netstandard2.1\" />
+    <ProjectReference Include="..\RSAExtensions\RSAExtensions.csproj" />
   </ItemGroup>
 
 </Project>
