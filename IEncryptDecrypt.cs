@@ -10,6 +10,6 @@ namespace EncyptionDecryption
     { 
         string Encrypt(string plaintext, T parameters);
         string Decrypt(string ciphertext, T parameters);
-        bool Verify(string plaintext, string hash, T parameters);
+       
     }
 }
